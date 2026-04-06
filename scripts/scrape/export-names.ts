@@ -43,7 +43,7 @@ function main(): void {
   const untagged = data.dishes.filter((d) => d.tagIds.length === 0)
   const nameList = untagged.map((d) => ({ id: d.id, name: d.name }))
 
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(nameList, null, 2), "utf-8")
+  fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(nameList, null, 2)}\n`, "utf-8")
 
   console.log(`=== 料理名リスト出力完了 ===`)
   console.log(`出力: ${OUTPUT_PATH}`)

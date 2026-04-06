@@ -437,7 +437,7 @@ async function main(): Promise<void> {
 
   // Step 3: 書き込み
   if (!dryRun) {
-    fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), "utf-8")
+    fs.writeFileSync(DATA_PATH, `${JSON.stringify(data, null, 2)}\n`, "utf-8")
     console.log(`\n=== 完了 ===`)
     console.log(`合計: ${data.dishes.length}件`)
 
