@@ -15,50 +15,55 @@ type Phase = "questioning" | "loading" | "result"
 
 export function QuestionFlow({ questions }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [collectedTagIds, setCollectedTagIds] = useState<string[]>([])
-  const [selectedIndices, setSelectedIndices] = useState<Set<number>>(new Set())
+  // 質問ごとの選択済みオプションインデックスを保持
+  const [selectionsByQuestion, setSelectionsByQuestion] = useState<Map<number, Set<number>>>(
+    new Map(),
+  )
   const [result, setResult] = useState<RecommendResult | null>(null)
   const [phase, setPhase] = useState<Phase>("questioning")
   const [isPending, startTransition] = useTransition()
 
   const currentQuestion = questions[currentIndex]
   const isLastQuestion = currentIndex === questions.length - 1
+  const selectedIndices = selectionsByQuestion.get(currentIndex) ?? new Set<number>()
 
   function toggleOption(index: number) {
-    setSelectedIndices((prev) => {
-      const next = new Set(prev)
-      if (next.has(index)) {
-        next.delete(index)
+    setSelectionsByQuestion((prev) => {
+      const next = new Map(prev)
+      const current = new Set(next.get(currentIndex) ?? [])
+      if (current.has(index)) {
+        current.delete(index)
       } else {
-        next.add(index)
+        current.add(index)
       }
+      next.set(currentIndex, current)
       return next
     })
   }
 
   function handleNext() {
-    const tagIds = [...selectedIndices].flatMap((i) => currentQuestion.options[i].tagIds)
-    const next = [...collectedTagIds, ...tagIds]
-
     if (isLastQuestion) {
-      setCollectedTagIds(next)
+      const allTagIds = questions.flatMap((q, qi) =>
+        [...(selectionsByQuestion.get(qi) ?? [])].flatMap((i) => q.options[i].tagIds),
+      )
       setPhase("loading")
       startTransition(async () => {
-        const res = await getRecommendations(next)
+        const res = await getRecommendations(allTagIds)
         setResult(res)
         setPhase("result")
       })
     } else {
-      setCollectedTagIds(next)
       setCurrentIndex((i) => i + 1)
-      setSelectedIndices(new Set())
     }
+  }
+
+  function handleBack() {
+    setCurrentIndex((i) => i - 1)
   }
 
   function handleReset() {
     setCurrentIndex(0)
-    setCollectedTagIds([])
-    setSelectedIndices(new Set())
+    setSelectionsByQuestion(new Map())
     setResult(null)
     setPhase("questioning")
   }
@@ -108,10 +113,21 @@ export function QuestionFlow({ questions }: Props) {
   // ── 質問画面 ──────────────────────────────────────────────
   return (
     <div className="space-y-8">
-      {/* 進捗 */}
-      <p className="text-xs font-medium text-muted-foreground">
-        {currentIndex + 1} / {questions.length}
-      </p>
+      {/* 進捗 + 戻るボタン */}
+      <div className="flex items-center justify-between">
+        <p className="text-xs font-medium text-muted-foreground">
+          {currentIndex + 1} / {questions.length}
+        </p>
+        {currentIndex > 0 && (
+          <button
+            type="button"
+            onClick={handleBack}
+            className="min-h-[44px] px-3 text-sm text-muted-foreground hover:text-foreground"
+          >
+            ← 戻る
+          </button>
+        )}
+      </div>
 
       {/* 質問文 */}
       <h2 className="text-xl font-bold leading-snug text-foreground">{currentQuestion.text}</h2>
