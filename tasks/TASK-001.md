@@ -1,55 +1,59 @@
 # TASK-001: プロジェクト初期セットアップ
 
 ## Meta
-- status: todo
+- status: in-progress
 - priority: critical
-- estimated_hours: 4
+- estimated_hours: 3
 - assignee:
 - github_issue:
 - depends_on: []
 - created_at: 2026-04-06T00:00:00+09:00
-- started_at:
+- started_at: 2026-04-06T00:00:00+09:00
 - completed_at:
 - milestone: MVP
 - labels: [setup]
 
 ## Description
-Next.js 16 App Router + TypeScript strict + Tailwind v4 + shadcn/ui + Prisma + Biome の環境を構築する。
+Next.js 16 App Router + TypeScript strict + Tailwind v4 + shadcn/ui + Biome の環境を構築する。
+DBなし構成（静的JSONファイル）を採用するため、Prisma・PostgreSQLは不要。
 開発に必要な全ての基盤を整え、以降のタスクがスムーズに進められる状態にする。
 
 ## Acceptance Criteria
-- [ ] Next.js 16 App Router プロジェクトが動作する
-- [ ] TypeScript strict モードが有効
-- [ ] Tailwind v4 が適用されている
+- [x] Next.js 16 App Router プロジェクトが動作する
+- [x] TypeScript strict モードが有効
+- [x] Tailwind v4 が適用されている
 - [ ] shadcn/ui がインストール済みで、サンプルコンポーネントが表示できる
-- [ ] Prisma + PostgreSQL 接続が確認できる
-- [ ] Biome でlint + format が実行できる（エラー0）
-- [ ] Vitest のセットアップが完了している
-- [ ] `.env.local` のテンプレート（`.env.example`）が作成されている
+- [x] Biome でlint + format が実行できる（エラー0）
+- [x] Vitest のセットアップが完了している
+- [x] `.env.example` が作成されている（最小限）
+- [x] `data/dishes.json` の空テンプレートが作成されている
 
 ## Sub Tasks
-- [ ] `create-next-app` で Next.js 16 プロジェクト作成（TypeScript, App Router, Tailwind）
-- [ ] Tailwind v4 に更新（必要な場合）
+- [x] `create-next-app` で Next.js 16 プロジェクト作成（TypeScript, App Router, Tailwind）
+- [x] Tailwind v4 の適用確認・必要なら手動アップグレード（create-next-appがv4を同梱）
 - [ ] shadcn/ui のインストール・初期設定
-- [ ] Biome のインストール・設定（`biome.json`）
-- [ ] Prisma のインストール・`schema.prisma` 初期作成
-- [ ] `.env.example` 作成（`DATABASE_URL` 等）
-- [ ] Vitest のインストール・設定
-- [ ] `package.json` のスクリプト整備（`dev`, `build`, `check`, `format`, `test`）
-- [ ] CLAUDE.md を `prisma/` に配置（危険モジュールガード）
+- [x] Biome のインストール・設定（`biome.json`）
+- [x] `package.json` のスクリプト整備（`dev`, `build`, `check`, `format`, `test`）
+- [x] Vitest のインストール・設定（`vitest.config.ts`）
+- [x] `data/dishes.json` 空テンプレート作成（`{ "dishes": [], "tags": [] }`）
+- [x] `.env.example` 作成（最小限）
+- [x] `git checkout -b feature/TASK-001-initial-setup`
 
 ## Technical Notes
 - shadcn/ui の初期テーマはデフォルトで OK（デザインシステムは TASK-005 で構築）
-- Prisma の接続先は開発環境のローカルDB or Supabase
+- Prisma・PostgreSQL は不要（ADR-005: DBなし設計）
+- Tailwind v4 は `@tailwindcss/vite` 系の設定が必要（`tailwind.config.ts` 不要）
 
 ## Files to Create/Modify
 - `package.json`: 依存関係追加
 - `biome.json`: Biome設定
-- `prisma/schema.prisma`: 初期スキーマ
-- `.env.example`: 環境変数テンプレート
-- `prisma/CLAUDE.md`: 危険モジュールガード
+- `vitest.config.ts`: Vitest設定
+- `data/dishes.json`: 空テンプレート
+- `.env.example`: 環境変数テンプレート（最小限）
 
 ## Progress Log
 | Date | Action | Note |
 |------|--------|------|
 | 2026-04-06 | created | Task created by /product-start |
+| 2026-04-06 | started | DBなし構成（静的JSON）に変更。Prisma関連を除去 |
+| 2026-04-06 | note | Next.js 16.2.2 + Tailwind v4 + Biome v2 + Vitest v4 インストール完了 |

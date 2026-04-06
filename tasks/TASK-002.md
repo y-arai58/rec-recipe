@@ -1,9 +1,9 @@
-# TASK-002: DBスキーマ設計・マイグレーション
+# TASK-002: JSONデータスキーマ設計・型定義
 
 ## Meta
 - status: todo
 - priority: critical
-- estimated_hours: 3
+- estimated_hours: 2
 - assignee:
 - github_issue:
 - depends_on: [TASK-001]
@@ -11,41 +11,41 @@
 - started_at:
 - completed_at:
 - milestone: MVP
-- labels: [database]
+- labels: [data]
 
 ## Description
-料理・タグ・料理-タグ中間テーブルの Prisma スキーマを定義し、マイグレーションを実行する。
-ドメインモデルとRepositoryインターフェースも合わせて定義する。
+料理・タグデータの TypeScript 型定義と `data/dishes.json` のスキーマを確定する。
+DBなし構成のため、Prismaスキーマ・マイグレーションは不要。
+ドメインモデルは純粋な TypeScript 型として定義する。
 
 ## Acceptance Criteria
-- [ ] `Dish`, `Tag`, `DishTag` モデルが `schema.prisma` に定義されている
-- [ ] `Tag.category` に 6 カテゴリ（genre/volume/base/cookTime/protein/season）が定義されている
-- [ ] マイグレーションが成功し、テーブルが作成されている
-- [ ] `domain/models/dish.ts` にドメインモデル型と `DishRepository` インターフェースが定義されている
-- [ ] `domain/models/tag.ts` にドメインモデル型と `TagRepository` インターフェースが定義されている
-- [ ] Prisma Studio でテーブル確認ができる
+- [ ] `Dish`, `Tag` の TypeScript 型が定義されている
+- [ ] `TagCategory` に 6 カテゴリ（genre/volume/base/cookTime/protein/season）が定義されている
+- [ ] `data/dishes.json` のスキーマ（構造）がドキュメント化されている
+- [ ] `domain/models/dish.ts` にドメインモデル型が定義されている
+- [ ] `domain/models/tag.ts` にドメインモデル型が定義されている
+- [ ] JSON読み込み用のユーティリティ関数が実装されている
 
 ## Sub Tasks
-- [ ] `prisma/schema.prisma` に Dish / Tag / DishTag モデルを定義
-- [ ] `prisma migrate dev` でマイグレーション実行
-- [ ] `domain/models/dish.ts` 作成（型 + Repository インターフェース）
-- [ ] `domain/models/tag.ts` 作成（型 + Repository インターフェース）
-- [ ] `repositories/dishRepository.ts` 作成（Prisma実装）
-- [ ] `repositories/tagRepository.ts` 作成（Prisma実装）
-- [ ] Prisma Studio で動作確認
+- [ ] `domain/models/tag.ts` 作成（Tag型 + TagCategory union型）
+- [ ] `domain/models/dish.ts` 作成（Dish型 + DishWithTags型）
+- [ ] `data/dishes.json` のスキーマをコメントで明文化
+- [ ] `src/lib/data.ts` 作成（JSON読み込み関数）
+- [ ] Zodスキーマで dishes.json のバリデーション定義
 
 ## Technical Notes
-- Tag.category は TypeScript の union 型 + as const で管理（enum 禁止）
-- DishTag は複合主キー（dishId + tagId）
+- TagCategory は `as const` + ユニオン型で管理（enum禁止）
+- `src/lib/data.ts` でJSONをimportしてZodでparse → 型安全なデータ取得
+- Next.js の静的import（`import data from '@/data/dishes.json'`）を活用
 
 ## Files to Create/Modify
-- `prisma/schema.prisma`: モデル定義追加
-- `domain/models/dish.ts`: ドメインモデル
-- `domain/models/tag.ts`: ドメインモデル
-- `repositories/dishRepository.ts`: Repository実装
-- `repositories/tagRepository.ts`: Repository実装
+- `src/domain/models/tag.ts`: Tag型定義
+- `src/domain/models/dish.ts`: Dish型定義
+- `src/lib/data.ts`: JSON読み込みユーティリティ
+- `data/dishes.json`: スキーマコメント追加
 
 ## Progress Log
 | Date | Action | Note |
 |------|--------|------|
 | 2026-04-06 | created | Task created by /product-start |
+| 2026-04-06 | updated | DBスキーマ→JSONスキーマ・型定義に変更（ADR-005: DBなし設計） |

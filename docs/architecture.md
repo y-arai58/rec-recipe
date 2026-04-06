@@ -3,8 +3,11 @@
 ## Overview
 
 料理レコメンドWebアプリ「rec-recipe」のシステムアーキテクチャ。
-Next.js App Router + PostgreSQL + Prisma によるサーバーサイドレンダリング中心の構成。
+Next.js App Router + 静的JSONデータによるサーバーサイドレンダリング中心の構成。
 認証なし、タグマッチングによるルールベースレコメンドを採用。
+
+> **ADR-005**: DBなし設計。料理データは静的JSONファイル（`data/dishes.json`）で管理。
+> データは実質不変（スクレイピング後の変更なし）なため、PostgreSQL+Prismaは不要と判断。
 
 ---
 
@@ -18,8 +21,7 @@ Next.js App Router（Vercel）
     ├── Client Components（質問フロー・インタラクション）
     └── Server Actions（レコメンドロジック実行）
         ↓
-PostgreSQL（Supabase or Railway）
-    └── Prisma ORM
+data/dishes.json（静的JSONファイル）
 ```
 
 ---
@@ -39,33 +41,28 @@ src/
 │       │   ├── QuestionFlow.tsx   # 質問フローUI（Client Component）
 │       │   └── DishCard.tsx      # レコメンド結果カード
 │       ├── actions.ts             # Server Action: レコメンド実行
-│       ├── queries.ts             # タグ付き料理の取得クエリ
+│       ├── queries.ts             # タグ付き料理の取得（JSONから読み込み）
 │       ├── scoring.ts             # タグマッチングスコアリングロジック
 │       ├── validation.ts          # Zod: 回答バリデーション
 │       └── types.ts               # UI用複合型
 ├── domain/
 │   └── models/
-│       ├── dish.ts                # Dish モデル型 + DishRepository インターフェース
-│       └── tag.ts                 # Tag モデル型 + TagRepository インターフェース
-├── repositories/
-│   ├── dishRepository.ts          # DishRepository 実装（Prisma）
-│   └── tagRepository.ts           # TagRepository 実装（Prisma）
+│       ├── dish.ts                # Dish 型定義
+│       └── tag.ts                 # Tag 型定義
 ├── components/
 │   ├── TagBadge.tsx               # タグ表示バッジ（共通）
 │   └── Button.tsx                 # ボタン（共通）
-├── lib/
-│   └── prisma.ts                  # Prisma Client シングルトン
 ├── constants/
 │   └── questions.ts               # 質問フローの定義（質問・選択肢・タグマッピング）
 └── styles/
     └── globals.css                # Tailwind v4 グローバルスタイル + デザイントークン
 
-prisma/
-└── schema.prisma                  # Prismaスキーマ
+data/
+└── dishes.json                    # 料理データ（スクレイピング結果 + タグ付与済み）
 
 scripts/
 └── scrape/
-    └── index.ts                   # 料理データ取得スクリプト（初回のみ実行）
+    └── index.ts                   # 料理データ取得スクリプト（初回のみ実行）→ data/dishes.json に出力
 ```
 
 ---
@@ -76,8 +73,7 @@ scripts/
 ```
 page.tsx（Server Component）
   → features/recommend/queries.ts
-  → repositories/dishRepository.ts
-  → Prisma → PostgreSQL
+  → import data/dishes.json
   → DishCard（Server Component）
 ```
 
@@ -87,38 +83,35 @@ QuestionFlow.tsx（Client Component）
   → form submit → Server Action（features/recommend/actions.ts）
   → Zod バリデーション
   → features/recommend/scoring.ts（タグマッチング）
-  → repositories/dishRepository.ts
-  → Prisma → PostgreSQL
-  → revalidatePath / return results
+  → dishes: DishWithTags[]（JSONから取得済み）
+  → return results
 ```
 
 ---
 
-## Database Schema
+## Data Schema (JSON)
 
-```prisma
-model Dish {
-  id        Int       @id @default(autoincrement())
-  name      String    @unique
-  tags      DishTag[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+```typescript
+// data/dishes.json の型（src/domain/models/dish.ts で定義）
+
+type TagCategory = "genre" | "volume" | "base" | "cookTime" | "protein" | "season"
+
+type Tag = {
+  id: number
+  name: string
+  category: TagCategory
 }
 
-model Tag {
-  id       Int       @id @default(autoincrement())
-  name     String    @unique
-  category String    // "genre" | "volume" | "base" | "cookTime" | "protein" | "season"
-  dishes   DishTag[]
+type Dish = {
+  id: number
+  name: string
+  tags: Tag[]
 }
 
-model DishTag {
-  dishId Int
-  tagId  Int
-  dish   Dish @relation(fields: [dishId], references: [id])
-  tag    Tag  @relation(fields: [tagId], references: [id])
-
-  @@id([dishId, tagId])
+// dishes.json の構造
+type DishesData = {
+  dishes: Dish[]
+  tags: Tag[]
 }
 ```
 
@@ -129,9 +122,10 @@ model DishTag {
 ```
 1. ユーザーが質問フローに回答
 2. 各回答を対応するタグID群に変換（constants/questions.ts で定義）
-3. 全料理に対して「ユーザー選択タグと料理タグの一致数」でスコアリング
-4. スコア降順で上位 5 件を取得
-5. 同スコア内でランダムシャッフル（毎回違う候補が出るように）
+3. data/dishes.json から全料理を読み込み
+4. 全料理に対して「ユーザー選択タグと料理タグの一致数」でスコアリング
+5. スコア降順で上位 5 件を取得
+6. 同スコア内でランダムシャッフル（毎回違う候補が出るように）
 ```
 
 ---
@@ -157,6 +151,7 @@ model DishTag {
 - [ADR-002] タグマッチング（ルールベース）→ LLM不要・コスト・速度・透明性
 - [ADR-003] レシピ情報を持たない → スコープ絞り込み・著作権回避
 - [ADR-004] スクレイピングで初期データ構築 → 日本の家庭料理カバレッジを確保
+- [ADR-005] DBなし・静的JSONファイル → インフラ不要・Vercelのみで完結
 
 ---
 
@@ -168,13 +163,11 @@ model DishTag {
 | Language | TypeScript | strict |
 | Styling | Tailwind CSS | v4 |
 | UI Components | shadcn/ui | latest |
-| ORM | Prisma | latest |
-| DB | PostgreSQL | 15+ |
+| Data | 静的JSONファイル | - |
 | Validation | Zod | latest |
 | Lint/Format | Biome | latest |
 | Test | Vitest | latest |
 | Hosting | Vercel | - |
-| DB Hosting | Supabase or Railway | - |
 
 ---
 
@@ -182,5 +175,5 @@ model DishTag {
 
 以下のディレクトリには個別の CLAUDE.md を配置してガードする:
 
-- `prisma/` — スキーマ変更は必ず migration を伴うこと
-- `scripts/scrape/` — 本番DBに直接書き込む。実行前に確認すること
+- `data/dishes.json` — 本番データ。直接編集しない（スクリプト経由で更新）
+- `scripts/scrape/` — data/dishes.json に直接書き込む。実行前に確認すること
