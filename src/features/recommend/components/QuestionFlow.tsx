@@ -16,6 +16,7 @@ type Phase = "questioning" | "loading" | "result"
 export function QuestionFlow({ questions }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [collectedTagIds, setCollectedTagIds] = useState<string[]>([])
+  const [selectedIndices, setSelectedIndices] = useState<Set<number>>(new Set())
   const [result, setResult] = useState<RecommendResult | null>(null)
   const [phase, setPhase] = useState<Phase>("questioning")
   const [isPending, startTransition] = useTransition()
@@ -23,7 +24,20 @@ export function QuestionFlow({ questions }: Props) {
   const currentQuestion = questions[currentIndex]
   const isLastQuestion = currentIndex === questions.length - 1
 
-  function handleSelect(tagIds: string[]) {
+  function toggleOption(index: number) {
+    setSelectedIndices((prev) => {
+      const next = new Set(prev)
+      if (next.has(index)) {
+        next.delete(index)
+      } else {
+        next.add(index)
+      }
+      return next
+    })
+  }
+
+  function handleNext() {
+    const tagIds = [...selectedIndices].flatMap((i) => currentQuestion.options[i].tagIds)
     const next = [...collectedTagIds, ...tagIds]
 
     if (isLastQuestion) {
@@ -37,12 +51,14 @@ export function QuestionFlow({ questions }: Props) {
     } else {
       setCollectedTagIds(next)
       setCurrentIndex((i) => i + 1)
+      setSelectedIndices(new Set())
     }
   }
 
   function handleReset() {
     setCurrentIndex(0)
     setCollectedTagIds([])
+    setSelectedIndices(new Set())
     setResult(null)
     setPhase("questioning")
   }
@@ -102,18 +118,23 @@ export function QuestionFlow({ questions }: Props) {
 
       {/* 選択肢 */}
       <div className="flex flex-col gap-3">
-        {currentQuestion.options.map((option) => (
+        {currentQuestion.options.map((option, i) => (
           <Button
             key={option.label}
-            variant="outline"
+            variant={selectedIndices.has(i) ? "default" : "outline"}
             size="lg"
             className="w-full justify-start text-left text-base"
-            onClick={() => handleSelect(option.tagIds)}
+            onClick={() => toggleOption(i)}
           >
             {option.label}
           </Button>
         ))}
       </div>
+
+      {/* 次へ */}
+      <Button size="lg" className="w-full" onClick={handleNext}>
+        {isLastQuestion ? "料理を探す" : "次へ"}
+      </Button>
     </div>
   )
 }
