@@ -35,6 +35,7 @@ export const QUESTIONS: Question[] = [
     options: [
       { label: "ご飯もの", tagIds: ["tag-base-rice", "tag-base-donburi"] },
       { label: "麺類", tagIds: ["tag-base-noodle"] },
+      { label: "パン", tagIds: ["tag-base-bread"] },
       { label: "こだわらない", tagIds: [] },
     ],
   },

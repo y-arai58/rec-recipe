@@ -15,34 +15,55 @@ type Phase = "questioning" | "loading" | "result"
 
 export function QuestionFlow({ questions }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [collectedTagIds, setCollectedTagIds] = useState<string[]>([])
+  // 質問ごとの選択済みオプションインデックスを保持
+  const [selectionsByQuestion, setSelectionsByQuestion] = useState<Map<number, Set<number>>>(
+    new Map(),
+  )
   const [result, setResult] = useState<RecommendResult | null>(null)
   const [phase, setPhase] = useState<Phase>("questioning")
   const [isPending, startTransition] = useTransition()
 
   const currentQuestion = questions[currentIndex]
   const isLastQuestion = currentIndex === questions.length - 1
+  const selectedIndices = selectionsByQuestion.get(currentIndex) ?? new Set<number>()
 
-  function handleSelect(tagIds: string[]) {
-    const next = [...collectedTagIds, ...tagIds]
+  function toggleOption(index: number) {
+    setSelectionsByQuestion((prev) => {
+      const next = new Map(prev)
+      const current = new Set(next.get(currentIndex) ?? [])
+      if (current.has(index)) {
+        current.delete(index)
+      } else {
+        current.add(index)
+      }
+      next.set(currentIndex, current)
+      return next
+    })
+  }
 
+  function handleNext() {
     if (isLastQuestion) {
-      setCollectedTagIds(next)
+      const allTagIds = questions.flatMap((q, qi) =>
+        [...(selectionsByQuestion.get(qi) ?? [])].flatMap((i) => q.options[i].tagIds),
+      )
       setPhase("loading")
       startTransition(async () => {
-        const res = await getRecommendations(next)
+        const res = await getRecommendations(allTagIds)
         setResult(res)
         setPhase("result")
       })
     } else {
-      setCollectedTagIds(next)
       setCurrentIndex((i) => i + 1)
     }
   }
 
+  function handleBack() {
+    setCurrentIndex((i) => i - 1)
+  }
+
   function handleReset() {
     setCurrentIndex(0)
-    setCollectedTagIds([])
+    setSelectionsByQuestion(new Map())
     setResult(null)
     setPhase("questioning")
   }
@@ -92,28 +113,44 @@ export function QuestionFlow({ questions }: Props) {
   // ── 質問画面 ──────────────────────────────────────────────
   return (
     <div className="space-y-8">
-      {/* 進捗 */}
-      <p className="text-xs font-medium text-muted-foreground">
-        {currentIndex + 1} / {questions.length}
-      </p>
+      {/* 進捗 + 戻るボタン */}
+      <div className="flex items-center justify-between">
+        <p className="text-xs font-medium text-muted-foreground">
+          {currentIndex + 1} / {questions.length}
+        </p>
+        {currentIndex > 0 && (
+          <button
+            type="button"
+            onClick={handleBack}
+            className="min-h-[44px] px-3 text-sm text-muted-foreground hover:text-foreground"
+          >
+            ← 戻る
+          </button>
+        )}
+      </div>
 
       {/* 質問文 */}
       <h2 className="text-xl font-bold leading-snug text-foreground">{currentQuestion.text}</h2>
 
       {/* 選択肢 */}
       <div className="flex flex-col gap-3">
-        {currentQuestion.options.map((option) => (
+        {currentQuestion.options.map((option, i) => (
           <Button
             key={option.label}
-            variant="outline"
+            variant={selectedIndices.has(i) ? "default" : "outline"}
             size="lg"
             className="w-full justify-start text-left text-base"
-            onClick={() => handleSelect(option.tagIds)}
+            onClick={() => toggleOption(i)}
           >
             {option.label}
           </Button>
         ))}
       </div>
+
+      {/* 次へ */}
+      <Button size="lg" className="w-full" onClick={handleNext}>
+        {isLastQuestion ? "料理を探す" : "次へ"}
+      </Button>
     </div>
   )
 }
