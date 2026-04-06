@@ -13,7 +13,8 @@
     "test:watch": "vitest",
     "scrape": "tsx scripts/scrape/index.ts",
     "scrape:dry": "tsx scripts/scrape/index.ts --dry-run",
-    "export-names": "tsx scripts/scrape/export-names.ts"
+    "export-names": "tsx scripts/scrape/export-names.ts",
+    "tag-assign": "tsx scripts/tag-assign.ts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

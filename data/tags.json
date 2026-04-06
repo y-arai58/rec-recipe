@@ -1,0 +1,57 @@
+{
+  "tags": [
+    { "id": "tag-genre-japanese", "name": "和食", "category": "genre" },
+    { "id": "tag-genre-western", "name": "洋食", "category": "genre" },
+    { "id": "tag-genre-chinese", "name": "中華", "category": "genre" },
+    { "id": "tag-genre-korean", "name": "韓国料理", "category": "genre" },
+    { "id": "tag-genre-ethnic", "name": "エスニック", "category": "genre" },
+    { "id": "tag-genre-italian", "name": "イタリアン", "category": "genre" },
+    { "id": "tag-genre-french", "name": "フレンチ", "category": "genre" },
+    { "id": "tag-genre-curry", "name": "カレー系", "category": "genre" },
+    { "id": "tag-genre-nabe", "name": "鍋料理", "category": "genre" },
+    { "id": "tag-genre-fried", "name": "揚げ物", "category": "genre" },
+    { "id": "tag-genre-stirfry", "name": "炒め物", "category": "genre" },
+    { "id": "tag-genre-simmered", "name": "煮物", "category": "genre" },
+
+    { "id": "tag-volume-light", "name": "軽め", "category": "volume" },
+    { "id": "tag-volume-normal", "name": "普通", "category": "volume" },
+    { "id": "tag-volume-hearty", "name": "ボリューミー", "category": "volume" },
+    { "id": "tag-volume-snack", "name": "おつまみ", "category": "volume" },
+
+    { "id": "tag-base-rice", "name": "ご飯", "category": "base" },
+    { "id": "tag-base-donburi", "name": "丼", "category": "base" },
+    { "id": "tag-base-noodle", "name": "麺", "category": "base" },
+    { "id": "tag-base-bread", "name": "パン", "category": "base" },
+    { "id": "tag-base-soup", "name": "汁物", "category": "base" },
+    { "id": "tag-base-none", "name": "主食なし", "category": "base" },
+
+    { "id": "tag-cooktime-under15", "name": "15分以内", "category": "cookTime" },
+    { "id": "tag-cooktime-under30", "name": "30分以内", "category": "cookTime" },
+    { "id": "tag-cooktime-under60", "name": "30〜60分", "category": "cookTime" },
+    { "id": "tag-cooktime-over60", "name": "60分以上", "category": "cookTime" },
+    { "id": "tag-cooktime-overnight", "name": "前日仕込み", "category": "cookTime" },
+
+    { "id": "tag-protein-chicken", "name": "鶏肉", "category": "protein" },
+    { "id": "tag-protein-pork", "name": "豚肉", "category": "protein" },
+    { "id": "tag-protein-beef", "name": "牛肉", "category": "protein" },
+    { "id": "tag-protein-mixed", "name": "合いびき肉", "category": "protein" },
+    { "id": "tag-protein-salmon", "name": "鮭", "category": "protein" },
+    { "id": "tag-protein-whitefish", "name": "白身魚", "category": "protein" },
+    { "id": "tag-protein-seafood", "name": "魚介", "category": "protein" },
+    { "id": "tag-protein-shrimp", "name": "エビ", "category": "protein" },
+    { "id": "tag-protein-squid", "name": "イカ", "category": "protein" },
+    { "id": "tag-protein-shellfish", "name": "貝類", "category": "protein" },
+    { "id": "tag-protein-egg", "name": "卵", "category": "protein" },
+    { "id": "tag-protein-tofu", "name": "豆腐", "category": "protein" },
+    { "id": "tag-protein-legume", "name": "豆・大豆", "category": "protein" },
+    { "id": "tag-protein-none", "name": "なし", "category": "protein" },
+
+    { "id": "tag-season-spring", "name": "春", "category": "season" },
+    { "id": "tag-season-summer", "name": "夏", "category": "season" },
+    { "id": "tag-season-autumn", "name": "秋", "category": "season" },
+    { "id": "tag-season-winter", "name": "冬", "category": "season" },
+    { "id": "tag-season-yearround", "name": "通年", "category": "season" },
+    { "id": "tag-season-warm", "name": "温かい系", "category": "season" },
+    { "id": "tag-season-refreshing", "name": "さっぱり系", "category": "season" }
+  ]
+}
