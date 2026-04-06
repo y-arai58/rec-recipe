@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────
+   Design Tokens — Earth Tone Palette
+   rec-recipe: ベージュ × テラコッタ × ブラウン
+───────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surface */
+  --background: #f7f0e7;
+  --foreground: #2d1a0e;
+  --card: #fefcf8;
+  --card-foreground: #2d1a0e;
+  --popover: #fefcf8;
+  --popover-foreground: #2d1a0e;
+
+  /* Brand */
+  --primary: #b5622f;
+  --primary-foreground: #fefcf8;
+  --secondary: #6b4226;
+  --secondary-foreground: #fefcf8;
+
+  /* Neutral */
+  --muted: #ede5db;
+  --muted-foreground: #7a6050;
+  --accent: #e2cba9;
+  --accent-foreground: #2d1a0e;
+
+  /* State */
+  --destructive: #c0392b;
+  --destructive-foreground: #fefcf8;
+
+  /* Border / Input */
+  --border: #d8cabb;
+  --input: #d8cabb;
+  --ring: #b5622f;
+
+  /* Shape */
+  --radius: 0.5rem;
+
+  /* Tag category colors */
+  --tag-genre-bg: #f5e6d8;
+  --tag-genre-text: #7a3b1e;
+  --tag-volume-bg: #e4eed8;
+  --tag-volume-text: #3a5c25;
+  --tag-base-bg: #f5e9cc;
+  --tag-base-text: #7a5a1e;
+  --tag-cooktime-bg: #d8e8f0;
+  --tag-cooktime-text: #1e4a6e;
+  --tag-protein-bg: #f0dde0;
+  --tag-protein-text: #6e2030;
+  --tag-season-bg: #e8daf5;
+  --tag-season-text: #4a2570;
 }
+
+/* ─────────────────────────────────────────────
+   Tailwind v4 @theme mapping
+───────────────────────────────────────────── */
 
 @theme inline {
+  /* Font */
+  --font-sans: var(--font-noto-sans-jp), "Noto Sans JP", sans-serif;
+
+  /* Surface */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* Brand */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  /* Neutral */
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* State */
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* Border / Input */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Shape */
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ─────────────────────────────────────────────
+   Base styles
+───────────────────────────────────────────── */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+* {
+  border-color: var(--border);
 }
