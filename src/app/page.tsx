@@ -3,7 +3,7 @@ import { QuestionFlow } from "@/features/recommend/components/QuestionFlow"
 
 export default function Home() {
   return (
-    <main className="mx-auto min-h-screen max-w-md px-5 py-10">
+    <main className="mx-auto min-h-screen max-w-lg px-5 py-10">
       {/* ヘッダー */}
       <header className="mb-10">
         <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">

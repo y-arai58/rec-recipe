@@ -19,7 +19,7 @@ export async function getRecommendations(
     return { dishes: [] }
   }
 
-  const dishes = getDishesForRecommend()
+  const dishes = await getDishesForRecommend()
   const results = scoreDishes({
     selectedTagIds: parsed.data.selectedTagIds,
     dishes,

@@ -1,7 +1,13 @@
+import { unstable_cache } from "next/cache"
 import type { DishWithTags } from "@/domain/models/dish"
 import { getAllDishesWithTags } from "@/lib/data"
 
-/** features 層からタグ付き全料理を取得する。将来的なキャッシュ差し込み口。 */
-export function getDishesForRecommend(): DishWithTags[] {
-  return getAllDishesWithTags()
+const getCachedDishes = unstable_cache(
+  async (): Promise<DishWithTags[]> => getAllDishesWithTags(),
+  ["dishes-for-recommend"],
+)
+
+/** features 層からタグ付き全料理を取得する（キャッシュ済み）。 */
+export async function getDishesForRecommend(): Promise<DishWithTags[]> {
+  return getCachedDishes()
 }

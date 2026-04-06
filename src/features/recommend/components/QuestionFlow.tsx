@@ -56,7 +56,7 @@ export function QuestionFlow({ questions }: Props) {
           <button
             type="button"
             onClick={handleReset}
-            className="text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+            className="min-h-[44px] px-3 text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
           >
             もう一度
           </button>
