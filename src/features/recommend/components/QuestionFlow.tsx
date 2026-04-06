@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useTransition } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import type { Question } from "@/constants/questions"
-import { getRecommendations } from "../actions"
+import { getAllDishesWithTags } from "@/lib/data"
+import { scoreDishes } from "../scoring"
 import type { RecommendResult } from "../types"
 import { DishCard } from "./DishCard"
 
@@ -11,7 +12,7 @@ type Props = {
   questions: Question[]
 }
 
-type Phase = "questioning" | "loading" | "result"
+type Phase = "questioning" | "result"
 
 export function QuestionFlow({ questions }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -21,7 +22,6 @@ export function QuestionFlow({ questions }: Props) {
   )
   const [result, setResult] = useState<RecommendResult | null>(null)
   const [phase, setPhase] = useState<Phase>("questioning")
-  const [isPending, startTransition] = useTransition()
 
   const currentQuestion = questions[currentIndex]
   const isLastQuestion = currentIndex === questions.length - 1
@@ -46,12 +46,17 @@ export function QuestionFlow({ questions }: Props) {
       const allTagIds = questions.flatMap((q, qi) =>
         [...(selectionsByQuestion.get(qi) ?? [])].flatMap((i) => q.options[i].tagIds),
       )
-      setPhase("loading")
-      startTransition(async () => {
-        const res = await getRecommendations(allTagIds)
-        setResult(res)
-        setPhase("result")
+      const dishes = getAllDishesWithTags()
+      const scored = scoreDishes({ selectedTagIds: allTagIds, dishes })
+      setResult({
+        dishes: scored.map((d) => ({
+          id: d.id,
+          name: d.name,
+          tags: d.tags,
+          score: d.score,
+        })),
       })
+      setPhase("result")
     } else {
       setCurrentIndex((i) => i + 1)
     }
@@ -96,16 +101,6 @@ export function QuestionFlow({ questions }: Props) {
             ))}
           </ul>
         )}
-      </div>
-    )
-  }
-
-  // ── ローディング ──────────────────────────────────────────
-  if (phase === "loading" || isPending) {
-    return (
-      <div className="flex flex-col items-center gap-3 py-16">
-        <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-        <p className="text-sm text-muted-foreground">料理を探しています…</p>
       </div>
     )
   }
