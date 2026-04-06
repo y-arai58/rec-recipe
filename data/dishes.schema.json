@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DishesData",
+  "description": "rec-recipe の料理・タグデータ（data/dishes.json）のスキーマ定義",
+  "type": "object",
+  "required": ["dishes", "tags"],
+  "properties": {
+    "dishes": {
+      "type": "array",
+      "description": "料理一覧",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "tagIds"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "料理ID（例: dish-001）"
+          },
+          "name": {
+            "type": "string",
+            "description": "料理名（例: カレーライス）"
+          },
+          "tagIds": {
+            "type": "array",
+            "description": "紐付くタグIDの配列（1料理あたり5〜10個）",
+            "items": { "type": "string" }
+          },
+          "imageUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "料理画像URL（任意）"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "レシピ元URL（任意）"
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "タグ一覧（50〜100件想定）",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "タグID（例: tag-genre-japanese）"
+          },
+          "name": {
+            "type": "string",
+            "description": "タグ名（例: 和食）"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["genre", "volume", "base", "cookTime", "protein", "season"],
+            "description": "タグカテゴリ: genre=ジャンル / volume=ボリューム / base=ベース食材 / cookTime=調理時間 / protein=タンパク源 / season=季節感"
+          }
+        }
+      }
+    }
+  }
+}
