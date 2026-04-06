@@ -45,11 +45,11 @@ export default async function DishDetailPage({ params }: { params: Promise<{ id:
   ) as Record<TagCategory, typeof dish.tags>
 
   return (
-    <main className="mx-auto min-h-screen max-w-md px-5 py-10">
+    <main className="mx-auto min-h-screen max-w-lg px-5 py-10">
       {/* 戻るリンク */}
       <Link
         href="/"
-        className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+        className="inline-flex min-h-[44px] items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
       >
         ← トップに戻る
       </Link>
@@ -79,7 +79,10 @@ export default async function DishDetailPage({ params }: { params: Promise<{ id:
 
       {/* フッターアクション */}
       <div className="mt-12 border-t border-border pt-6">
-        <Link href="/" className="text-sm font-medium text-primary hover:underline">
+        <Link
+          href="/"
+          className="inline-flex min-h-[44px] items-center text-sm font-medium text-primary hover:underline"
+        >
           別の料理を探す →
         </Link>
       </div>
