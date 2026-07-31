@@ -1,0 +1,722 @@
+{
+  "ingredients": [
+    {
+      "id": "ing-onion",
+      "name": "玉ねぎ",
+      "category": "vegetable",
+      "unit": "個",
+      "packs": [
+        { "size": 1, "price": 80, "label": "1個" },
+        { "size": 3, "price": 200, "label": "3個入り袋" }
+      ],
+      "shelfLifeDays": 21,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-carrot",
+      "name": "にんじん",
+      "category": "vegetable",
+      "unit": "本",
+      "packs": [
+        { "size": 1, "price": 80, "label": "1本" },
+        { "size": 3, "price": 180, "label": "3本入り袋" }
+      ],
+      "shelfLifeDays": 21,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-potato",
+      "name": "じゃがいも",
+      "category": "vegetable",
+      "unit": "個",
+      "packs": [
+        { "size": 1, "price": 70, "label": "1個" },
+        { "size": 5, "price": 250, "label": "5個入り袋" }
+      ],
+      "shelfLifeDays": 30,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-cabbage",
+      "name": "キャベツ",
+      "category": "vegetable",
+      "unit": "個",
+      "packs": [
+        { "size": 0.5, "price": 130, "label": "1/2個" },
+        { "size": 1, "price": 220, "label": "1個" }
+      ],
+      "shelfLifeDays": 10,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-hakusai",
+      "name": "白菜",
+      "category": "vegetable",
+      "unit": "個",
+      "packs": [
+        { "size": 0.25, "price": 150, "label": "1/4個" },
+        { "size": 0.5, "price": 260, "label": "1/2個" }
+      ],
+      "shelfLifeDays": 10,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-daikon",
+      "name": "大根",
+      "category": "vegetable",
+      "unit": "本",
+      "packs": [
+        { "size": 0.5, "price": 130, "label": "1/2本" },
+        { "size": 1, "price": 200, "label": "1本" }
+      ],
+      "shelfLifeDays": 10,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-piman",
+      "name": "ピーマン",
+      "category": "vegetable",
+      "unit": "個",
+      "packs": [{ "size": 4, "price": 160, "label": "4個入り袋" }],
+      "shelfLifeDays": 7,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-nasu",
+      "name": "なす",
+      "category": "vegetable",
+      "unit": "本",
+      "packs": [{ "size": 3, "price": 200, "label": "3本入り袋" }],
+      "shelfLifeDays": 5,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-tomato",
+      "name": "トマト",
+      "category": "vegetable",
+      "unit": "個",
+      "packs": [
+        { "size": 1, "price": 120, "label": "1個" },
+        { "size": 4, "price": 380, "label": "4個入りパック" }
+      ],
+      "shelfLifeDays": 6,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-broccoli",
+      "name": "ブロッコリー",
+      "category": "vegetable",
+      "unit": "株",
+      "packs": [{ "size": 1, "price": 200, "label": "1株" }],
+      "shelfLifeDays": 5,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-spinach",
+      "name": "ほうれん草",
+      "category": "vegetable",
+      "unit": "束",
+      "packs": [{ "size": 1, "price": 180, "label": "1束" }],
+      "shelfLifeDays": 3,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-komatsuna",
+      "name": "小松菜",
+      "category": "vegetable",
+      "unit": "束",
+      "packs": [{ "size": 1, "price": 160, "label": "1束" }],
+      "shelfLifeDays": 3,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-moyashi",
+      "name": "もやし",
+      "category": "vegetable",
+      "unit": "袋",
+      "packs": [{ "size": 1, "price": 40, "label": "1袋" }],
+      "shelfLifeDays": 2,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-nira",
+      "name": "にら",
+      "category": "vegetable",
+      "unit": "束",
+      "packs": [{ "size": 1, "price": 140, "label": "1束" }],
+      "shelfLifeDays": 3,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-negi",
+      "name": "長ねぎ",
+      "category": "vegetable",
+      "unit": "本",
+      "packs": [
+        { "size": 1, "price": 130, "label": "1本" },
+        { "size": 3, "price": 300, "label": "3本入り袋" }
+      ],
+      "shelfLifeDays": 8,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-gobo",
+      "name": "ごぼう",
+      "category": "vegetable",
+      "unit": "本",
+      "packs": [{ "size": 2, "price": 220, "label": "2本入り袋" }],
+      "shelfLifeDays": 14,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-renkon",
+      "name": "れんこん",
+      "category": "vegetable",
+      "unit": "節",
+      "packs": [{ "size": 1, "price": 250, "label": "1節" }],
+      "shelfLifeDays": 7,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-kabocha",
+      "name": "かぼちゃ",
+      "category": "vegetable",
+      "unit": "個",
+      "packs": [{ "size": 0.25, "price": 250, "label": "1/4個" }],
+      "shelfLifeDays": 7,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-shimeji",
+      "name": "しめじ",
+      "category": "vegetable",
+      "unit": "パック",
+      "packs": [{ "size": 1, "price": 120, "label": "1パック" }],
+      "shelfLifeDays": 5,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-ginger",
+      "name": "しょうが",
+      "category": "vegetable",
+      "unit": "片",
+      "packs": [{ "size": 5, "price": 130, "label": "1袋" }],
+      "shelfLifeDays": 14,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-garlic",
+      "name": "にんにく",
+      "category": "vegetable",
+      "unit": "片",
+      "packs": [{ "size": 8, "price": 180, "label": "1玉" }],
+      "shelfLifeDays": 30,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-kimchi",
+      "name": "キムチ",
+      "category": "vegetable",
+      "unit": "g",
+      "packs": [{ "size": 300, "price": 320, "label": "300gパック" }],
+      "shelfLifeDays": 21,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-chicken-thigh",
+      "name": "鶏もも肉",
+      "category": "meat",
+      "unit": "g",
+      "packs": [
+        { "size": 300, "price": 450, "label": "300gパック" },
+        { "size": 600, "price": 780, "label": "600g 大容量パック" }
+      ],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-chicken-breast",
+      "name": "鶏むね肉",
+      "category": "meat",
+      "unit": "g",
+      "packs": [
+        { "size": 300, "price": 300, "label": "300gパック" },
+        { "size": 600, "price": 520, "label": "600g 大容量パック" }
+      ],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-pork-sliced",
+      "name": "豚こま切れ肉",
+      "category": "meat",
+      "unit": "g",
+      "packs": [
+        { "size": 300, "price": 430, "label": "300gパック" },
+        { "size": 600, "price": 760, "label": "600g 大容量パック" }
+      ],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-pork-belly",
+      "name": "豚バラ肉",
+      "category": "meat",
+      "unit": "g",
+      "packs": [
+        { "size": 300, "price": 480, "label": "300gパック" },
+        { "size": 600, "price": 860, "label": "600g 大容量パック" }
+      ],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-pork-loin",
+      "name": "豚ロース肉",
+      "category": "meat",
+      "unit": "g",
+      "packs": [
+        { "size": 300, "price": 520, "label": "300gパック" },
+        { "size": 600, "price": 940, "label": "600g 大容量パック" }
+      ],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-beef-sliced",
+      "name": "牛こま切れ肉",
+      "category": "meat",
+      "unit": "g",
+      "packs": [
+        { "size": 300, "price": 780, "label": "300gパック" },
+        { "size": 500, "price": 1200, "label": "500g 大容量パック" }
+      ],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-ground-meat",
+      "name": "合いびき肉",
+      "category": "meat",
+      "unit": "g",
+      "packs": [
+        { "size": 300, "price": 450, "label": "300gパック" },
+        { "size": 600, "price": 800, "label": "600g 大容量パック" }
+      ],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-bacon",
+      "name": "ベーコン",
+      "category": "meat",
+      "unit": "g",
+      "packs": [{ "size": 100, "price": 250, "label": "100gパック" }],
+      "shelfLifeDays": 10,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-salmon",
+      "name": "生鮭",
+      "category": "seafood",
+      "unit": "切れ",
+      "packs": [
+        { "size": 2, "price": 480, "label": "2切れパック" },
+        { "size": 4, "price": 880, "label": "4切れパック" }
+      ],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-saba",
+      "name": "さば",
+      "category": "seafood",
+      "unit": "切れ",
+      "packs": [{ "size": 2, "price": 380, "label": "2切れパック" }],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-buri",
+      "name": "ぶり",
+      "category": "seafood",
+      "unit": "切れ",
+      "packs": [{ "size": 2, "price": 520, "label": "2切れパック" }],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-whitefish",
+      "name": "白身魚（たら）",
+      "category": "seafood",
+      "unit": "切れ",
+      "packs": [{ "size": 2, "price": 420, "label": "2切れパック" }],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-shrimp",
+      "name": "むきえび",
+      "category": "seafood",
+      "unit": "g",
+      "packs": [{ "size": 200, "price": 580, "label": "200gパック" }],
+      "shelfLifeDays": 2,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-egg",
+      "name": "卵",
+      "category": "egg",
+      "unit": "個",
+      "packs": [{ "size": 10, "price": 290, "label": "10個パック" }],
+      "shelfLifeDays": 14,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-tofu",
+      "name": "木綿豆腐",
+      "category": "soy",
+      "unit": "丁",
+      "packs": [{ "size": 1, "price": 90, "label": "1丁" }],
+      "shelfLifeDays": 4,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-atsuage",
+      "name": "厚揚げ",
+      "category": "soy",
+      "unit": "枚",
+      "packs": [{ "size": 2, "price": 120, "label": "2枚入り" }],
+      "shelfLifeDays": 4,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-aburaage",
+      "name": "油揚げ",
+      "category": "soy",
+      "unit": "枚",
+      "packs": [{ "size": 3, "price": 110, "label": "3枚入り" }],
+      "shelfLifeDays": 5,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-milk",
+      "name": "牛乳",
+      "category": "dairy",
+      "unit": "ml",
+      "packs": [{ "size": 1000, "price": 240, "label": "1000mlパック" }],
+      "shelfLifeDays": 6,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-butter",
+      "name": "バター",
+      "category": "dairy",
+      "unit": "g",
+      "packs": [{ "size": 200, "price": 480, "label": "200g" }],
+      "shelfLifeDays": 60,
+      "freezable": true,
+      "pantry": true
+    },
+    {
+      "id": "ing-cheese",
+      "name": "とろけるチーズ",
+      "category": "dairy",
+      "unit": "g",
+      "packs": [{ "size": 200, "price": 380, "label": "200g袋" }],
+      "shelfLifeDays": 21,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-rice",
+      "name": "米",
+      "category": "staple",
+      "unit": "合",
+      "packs": [{ "size": 33, "price": 3200, "label": "5kg袋" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-pasta",
+      "name": "パスタ",
+      "category": "staple",
+      "unit": "g",
+      "packs": [{ "size": 500, "price": 320, "label": "500g袋" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-yakisoba-men",
+      "name": "焼きそば麺",
+      "category": "staple",
+      "unit": "玉",
+      "packs": [{ "size": 3, "price": 150, "label": "3玉入り" }],
+      "shelfLifeDays": 7,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-gyoza-kawa",
+      "name": "餃子の皮",
+      "category": "staple",
+      "unit": "枚",
+      "packs": [{ "size": 30, "price": 130, "label": "30枚入り" }],
+      "shelfLifeDays": 7,
+      "freezable": true,
+      "pantry": false
+    },
+    {
+      "id": "ing-macaroni",
+      "name": "マカロニ",
+      "category": "staple",
+      "unit": "g",
+      "packs": [{ "size": 300, "price": 250, "label": "300g袋" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-flour",
+      "name": "小麦粉",
+      "category": "staple",
+      "unit": "g",
+      "packs": [{ "size": 1000, "price": 300, "label": "1kg袋" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-panko",
+      "name": "パン粉",
+      "category": "staple",
+      "unit": "g",
+      "packs": [{ "size": 200, "price": 160, "label": "200g袋" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-katakuriko",
+      "name": "片栗粉",
+      "category": "staple",
+      "unit": "g",
+      "packs": [{ "size": 300, "price": 180, "label": "300g袋" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-curry-roux",
+      "name": "カレールー",
+      "category": "seasoning",
+      "unit": "箱",
+      "packs": [{ "size": 1, "price": 300, "label": "1箱（約8皿分）" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-stew-roux",
+      "name": "シチュールー",
+      "category": "seasoning",
+      "unit": "箱",
+      "packs": [{ "size": 1, "price": 320, "label": "1箱（約8皿分）" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": false
+    },
+    {
+      "id": "ing-soy-sauce",
+      "name": "醤油",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 300, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-miso",
+      "name": "味噌",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 400, "label": "1パック" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-sugar",
+      "name": "砂糖",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 220, "label": "1袋" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-sake",
+      "name": "酒",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 350, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-mirin",
+      "name": "みりん",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 350, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-vinegar",
+      "name": "酢",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 250, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-oil",
+      "name": "サラダ油",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 400, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-sesame-oil",
+      "name": "ごま油",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 400, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-ketchup",
+      "name": "ケチャップ",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 250, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-sauce",
+      "name": "ソース",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 250, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-mayo",
+      "name": "マヨネーズ",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 300, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-oyster-sauce",
+      "name": "オイスターソース",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 330, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-tobanjan",
+      "name": "豆板醤",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 280, "label": "1本" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-dashi",
+      "name": "だしの素",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 350, "label": "1袋" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    },
+    {
+      "id": "ing-consomme",
+      "name": "コンソメ",
+      "category": "seasoning",
+      "unit": "適量",
+      "packs": [{ "size": 1, "price": 300, "label": "1箱" }],
+      "shelfLifeDays": null,
+      "freezable": false,
+      "pantry": true
+    }
+  ]
+}

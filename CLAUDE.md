@@ -3,7 +3,11 @@
 ## WHY — Purpose
 
 カップル・家族が毎日抱える「今日何食べる？」という献立決めの認知コストを解決する。
-気分や条件の質問に答えるだけで、家庭料理データベースから最適な料理を複数提案する。
+
+- `/` 気分や条件の質問に答えるだけで、家庭料理データベースから料理を複数提案する
+- `/plan` 買い物1回でまわる3〜7日分の献立と買い物リストを組み立てる。
+  袋・パック単位でしか買えないこと、大容量パックのほうが安いこと、
+  まとめ買いした食材が傷むことを計算に入れる
 
 ## WHAT — Repo Map
 
@@ -14,18 +18,22 @@ src/
 │   ├── dishes/[id]/       # 料理詳細（generateStaticParams で全件事前生成）
 │   ├── design-system/     # デザイントークン / コンポーネントのカタログ
 │   └── globals.css        # Tailwind v4 + デザイントークン
+│   └── plan/              # まとめ買い献立
 ├── features/              # Feature単位の実装
-│   └── {feature}/
+│   ├── recommend/         # 質問フロー + タグマッチング
+│   └── meal-plan/         # 献立プランナー + 買い物リスト
 │       ├── components/    # Feature専用コンポーネント
-│       ├── scoring.ts     # ドメインロジック（+ 同ディレクトリに .test.ts）
+│       ├── *.ts           # ドメインロジック（+ 同ディレクトリに .test.ts）
 │       └── types.ts       # UI都合の複合型
-├── domain/models/         # ピュアなドメインモデル（Dish / Tag）
+├── domain/models/         # ピュアなドメインモデル（Dish / Tag / Ingredient）
 ├── repositories/          # データアクセス（JSON経由）
 ├── components/ui/         # 共通UIコンポーネント（ロジックなし）
-├── constants/             # 定数（questions.ts など）
-└── lib/                   # data.ts（JSONロード+Zod）, utils.ts（cn）
+├── constants/             # 定数（questions.ts, seasons.ts）
+└── lib/                   # data.ts, ingredient-data.ts, *-schema.ts（テスト専用）, utils.ts
 
-data/                      # 料理224件・タグ48件の静的JSON（唯一のデータソース）
+data/                      # 静的JSON（唯一のデータソース）
+                           #   dishes.json    … tag-assign が生成。直接編集しない
+                           #   ingredients.json / dish-ingredients.json … 手で管理
 scripts/                   # データ構築スクリプト（アプリからは参照されない）
 
 docs/
@@ -46,9 +54,9 @@ tasks/                     # Task files (single source of truth for status)
 
 - Next.js 16 (App Router, `output: "export"`) + React 19 + TypeScript strict
 - Tailwind v4（`@theme inline` + CSS変数トークン）+ cva + clsx + tailwind-merge
-- Zod v4（データスキーマ検証）
+- Zod v4（データスキーマ検証。**テストとスクリプトからのみ import する**）
 - Biome (lint + format)
-- Vitest (unit test, jsdom)
+- Vitest (unit test, happy-dom) + @testing-library/react
 - GitHub Pages デプロイ（`.github/workflows/deploy.yml`）
 
 **DBなし**（ADR-005）。Prisma / PostgreSQL は使わない。

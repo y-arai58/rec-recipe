@@ -43,17 +43,24 @@ src/
 │   ├── layout.tsx                  # Noto Sans JP + メタデータ
 │   └── globals.css                 # Tailwind v4 グローバルスタイル + デザイントークン
 ├── features/
-│   └── recommend/
+│   ├── recommend/
+│   │   ├── components/
+│   │   │   ├── QuestionFlow.tsx    # 質問フローUI + スコアリング実行（Client Component）
+│   │   │   └── DishCard.tsx        # レコメンド結果カード
+│   │   ├── scoring.ts              # タグマッチングスコアリングロジック
+│   │   └── types.ts                # UI用複合型
+│   └── meal-plan/
 │       ├── components/
-│       │   ├── QuestionFlow.tsx    # 質問フローUI + スコアリング実行（Client Component）
-│       │   └── DishCard.tsx        # レコメンド結果カード
-│       ├── scoring.ts              # タグマッチングスコアリングロジック
-│       ├── scoring.test.ts         # スコアリングの単体テスト
-│       └── types.ts                # UI用複合型
+│       │   └── MealPlanner.tsx     # 日数・人数の選択 + 献立/買い物リスト表示
+│       ├── planning.ts             # 献立選定・日並べ・買い物リスト・使い切り警告
+│       ├── shopping.ts             # 最小コストのパック組み合わせ探索
+│       ├── queries.ts              # 材料データを持つ料理の抽出
+│       └── types.ts
 ├── domain/
 │   └── models/
 │       ├── dish.ts                 # Dish / DishWithTags 型定義
-│       └── tag.ts                  # Tag / TagCategory 型定義
+│       ├── tag.ts                  # Tag / TagCategory 型定義
+│       └── ingredient.ts           # Ingredient / PackOption / DishIngredient
 ├── repositories/
 │   └── dishRepository.ts           # 料理の取得（詳細ページ用）
 ├── components/
@@ -67,9 +74,11 @@ src/
     └── utils.ts                    # cn()
 
 data/
-├── dishes.json                     # 料理224件 + タグマスター（アプリの唯一のデータソース）
+├── dishes.json                     # 料理224件 + タグマスター（tag-assign が生成。直接編集しない）
 ├── dishes.schema.json              # JSON Schema
-├── tags.json                       # タグ48件のマスター（tag-assign スクリプトの入力）
+├── tags.json                       # タグ49件のマスター（tag-assign スクリプトの入力）
+├── ingredients.json                # 食材67件（購入単位・日持ち・常備品フラグ）※手で編集
+├── dish-ingredients.json           # 主菜55件ぶんの材料（2人分）※手で編集
 └── dish_name_list.json             # 料理名一覧（スクレイピングの中間生成物）
 
 scripts/
@@ -100,6 +109,19 @@ QuestionFlow.tsx（"use client"）
   → lib/data.ts の getAllDishesWithTags()
   → features/recommend/scoring.ts の scoreDishes()
   → RecommendedDish[] を state に格納 → DishCard で描画
+```
+
+### まとめ買い献立（ブラウザ上で完結）
+```
+MealPlanner.tsx（"use client"）
+  → 日数(3〜7) / 人数(2〜4) を選択
+  → features/meal-plan/queries.ts … 材料データを持つ料理55件
+  → features/meal-plan/planning.ts の buildMealPlan()
+       1. 好みタグ + 食材の使い回し率 + 野菜量 で料理を貪欲に選ぶ
+       2. 日持ちの短い食材を使う料理を前半の日へ並べ替え
+       3. 食材ごとの必要量と「最後に使う日」を集計
+       4. shopping.ts の choosePacks() でパック単位に切り上げ（最小コスト）
+       5. 「最後に使う日 > 日持ち日数」と「余り」を警告
 ```
 
 > Server Action は使わない。静的エクスポートでは実行できないため。
@@ -159,10 +181,10 @@ type DishesData = { dishes: Dish[]; tags: Tag[] }
 |---|---|---|---|
 | genre | 12 | 料理ジャンル（国） | Q2「何系が食べたい？」 |
 | volume | 4 | ボリューム感 | Q1「今日の気分は？」 |
-| base | 6 | 主食ベース | Q3「主食は？」 |
-| cookTime | 5 | 調理時間目安 | Q4「調理時間は？」 |
-| protein | 14 | タンパク源 | **未使用** |
-| season | 7 | 季節感 | Q1で一部のみ |
+| base | 6 | 主食ベース | Q4「主食は？」 |
+| cookTime | 5 | 調理時間目安 | Q5「調理時間は？」 |
+| protein | 15 | タンパク源 | Q3「主役の食材は？」 |
+| season | 7 | 季節感 | 実行月から自動加点（「通年」は除く） |
 
 ---
 
@@ -172,9 +194,10 @@ type DishesData = { dishes: Dish[]; tags: Tag[] }
 
 - [ADR-001] 認証なし設計 → 摩擦ゼロ・個人利用を優先
 - [ADR-002] タグマッチング（ルールベース）→ LLM不要・コスト・速度・透明性
-- [ADR-003] レシピ情報を持たない → スコープ絞り込み・著作権回避
+- [ADR-003] レシピ情報を持たない → スコープ絞り込み・著作権回避（ADR-007 で一部変更）
 - [ADR-005] DBなし・静的JSONファイル → インフラ不要
 - [ADR-006] 静的エクスポート + GitHub Pages → サーバー・ホスティング費用ゼロ
+- [ADR-007] 材料データを持つ（手順は持たない）→ まとめ買い献立・買い物リストのため
 
 ---
 
@@ -204,5 +227,8 @@ type DishesData = { dishes: Dish[]; tags: Tag[] }
 
 以下のディレクトリには個別の CLAUDE.md を配置してガードする:
 
-- `data/dishes.json` — 本番データ。直接編集しない（スクリプト経由で更新）
+- `data/dishes.json` — 本番データ。直接編集しない（`npm run tag-assign` 経由で更新）
 - `scripts/scrape/` — data/dishes.json に直接書き込む。実行前に確認すること
+
+`data/ingredients.json` と `data/dish-ingredients.json` は逆に**手で管理する**。
+スクリプトから書き換えないこと（分量はキーワード推定できないため）。
