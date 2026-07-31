@@ -1,86 +1,55 @@
-import { z } from "zod"
 import type { Dish, DishWithTags } from "@/domain/models/dish"
 import type { Tag } from "@/domain/models/tag"
-import { TAG_CATEGORIES } from "@/domain/models/tag"
 import rawData from "../../data/dishes.json"
 
-// ---------------------------------------------------------------------------
-// Zod schemas
-// ---------------------------------------------------------------------------
-
-const TagCategorySchema = z.enum(TAG_CATEGORIES)
-
 /**
- * dishes.json の Tag エントリのスキーマ
- * { "id": string, "name": string, "category": TagCategory }
+ * data/dishes.json へのアクセス層。
+ *
+ * このモジュールは Client Component からも読まれるため、実行時の検証は行わない。
+ * Zod を module scope で走らせるとスキーマ定義ごとクライアントバンドルに載ってしまう。
+ * JSON がスキーマを満たすことは `data.test.ts`（CI で実行）が保証する。
  */
-const TagSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  category: TagCategorySchema,
-})
 
-/**
- * dishes.json の Dish エントリのスキーマ
- * { "id": string, "name": string, "tagIds": string[], "imageUrl"?: string, "sourceUrl"?: string }
- */
-const DishSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  tagIds: z.array(z.string()),
-  imageUrl: z.string().url().optional(),
-  sourceUrl: z.string().url().optional(),
-})
+type DishesData = {
+  dishes: Dish[]
+  tags: Tag[]
+}
 
-/**
- * dishes.json 全体のスキーマ
- * { "dishes": Dish[], "tags": Tag[] }
- */
-const DishesDataSchema = z.object({
-  dishes: z.array(DishSchema),
-  tags: z.array(TagSchema),
-})
+const data = rawData as DishesData
 
-// ---------------------------------------------------------------------------
-// Parsed data (validated at module load time)
-// ---------------------------------------------------------------------------
+// タグ結合は何度呼んでも同じ結果になるため、モジュール読み込み時に1回だけ組み立てる
+const tagMap = new Map(data.tags.map((tag) => [tag.id, tag]))
 
-const parsedData = DishesDataSchema.parse(rawData)
+function withTags(dish: Dish): DishWithTags {
+  const tags = dish.tagIds
+    .map((tagId) => tagMap.get(tagId))
+    .filter((tag): tag is Tag => tag !== undefined)
+  return { ...dish, tags }
+}
+
+const dishesWithTags: DishWithTags[] = data.dishes.map(withTags)
+const dishWithTagsById = new Map(dishesWithTags.map((dish) => [dish.id, dish]))
 
 // ---------------------------------------------------------------------------
 // Data access utilities
 // ---------------------------------------------------------------------------
 
 export function getAllDishes(): Dish[] {
-  return parsedData.dishes
+  return data.dishes
 }
 
 export function getAllTags(): Tag[] {
-  return parsedData.tags
+  return data.tags
 }
 
 export function getDishById(id: string): Dish | undefined {
-  return parsedData.dishes.find((dish) => dish.id === id)
+  return dishWithTagsById.get(id)
 }
 
 export function getDishWithTags(id: string): DishWithTags | undefined {
-  const dish = getDishById(id)
-  if (!dish) return undefined
-
-  const tagMap = new Map(parsedData.tags.map((tag) => [tag.id, tag]))
-  const tags = dish.tagIds
-    .map((tagId) => tagMap.get(tagId))
-    .filter((tag): tag is Tag => tag !== undefined)
-
-  return { ...dish, tags }
+  return dishWithTagsById.get(id)
 }
 
 export function getAllDishesWithTags(): DishWithTags[] {
-  const tagMap = new Map(parsedData.tags.map((tag) => [tag.id, tag]))
-  return parsedData.dishes.map((dish) => {
-    const tags = dish.tagIds
-      .map((tagId) => tagMap.get(tagId))
-      .filter((tag): tag is Tag => tag !== undefined)
-    return { ...dish, tags }
-  })
+  return dishesWithTags
 }

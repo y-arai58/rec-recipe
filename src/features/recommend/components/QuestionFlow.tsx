@@ -120,7 +120,7 @@ export function QuestionFlow({ questions }: Props) {
     const hasMore = seenIds.length < dishes.length
 
     return (
-      <div className="space-y-5">
+      <div className="space-y-5" aria-live="polite">
         <div className="flex items-baseline justify-between gap-3">
           <h2 className="text-lg font-bold text-foreground">おすすめの料理</h2>
           <button
@@ -198,24 +198,27 @@ export function QuestionFlow({ questions }: Props) {
         )}
       </div>
 
-      {/* 質問文 */}
-      <h2 className="text-xl font-bold leading-snug text-foreground">{currentQuestion.text}</h2>
+      {/* 質問文 + 選択肢（複数選択可・未選択のまま進める） */}
+      <fieldset className="min-w-0 space-y-5">
+        <legend className="text-xl font-bold leading-snug text-foreground">
+          {currentQuestion.text}
+        </legend>
 
-      {/* 選択肢（複数選択可・未選択のまま進める） */}
-      <div className="flex flex-col gap-3">
-        {currentQuestion.options.map((option, i) => (
-          <Button
-            key={option.label}
-            variant={selectedIndices.has(i) ? "default" : "outline"}
-            size="lg"
-            className="w-full justify-start text-left text-base"
-            aria-pressed={selectedIndices.has(i)}
-            onClick={() => toggleOption(i)}
-          >
-            {option.label}
-          </Button>
-        ))}
-      </div>
+        <div className="flex flex-col gap-3">
+          {currentQuestion.options.map((option, i) => (
+            <Button
+              key={option.label}
+              variant={selectedIndices.has(i) ? "default" : "outline"}
+              size="lg"
+              className="w-full justify-start text-left text-base"
+              aria-pressed={selectedIndices.has(i)}
+              onClick={() => toggleOption(i)}
+            >
+              {option.label}
+            </Button>
+          ))}
+        </div>
+      </fieldset>
 
       {/* 次へ */}
       <Button size="lg" className="w-full" onClick={handleNext}>
