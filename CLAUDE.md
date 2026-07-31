@@ -9,25 +9,24 @@
 
 ```
 src/
-├── app/                   # Next.js App Router
-│   ├── api/               # 外部連携用APIルート（Webhook等）
-│   └── (dashboard)/       # 認証後のページ
+├── app/                   # Next.js App Router（static export）
+│   ├── page.tsx           # トップ（質問フロー）
+│   ├── dishes/[id]/       # 料理詳細（generateStaticParams で全件事前生成）
+│   ├── design-system/     # デザイントークン / コンポーネントのカタログ
+│   └── globals.css        # Tailwind v4 + デザイントークン
 ├── features/              # Feature単位の実装
-│   └── {service}/{feature}/
+│   └── {feature}/
 │       ├── components/    # Feature専用コンポーネント
-│       ├── actions.ts     # Server Actions
-│       ├── queries.ts     # JOINを含む複合クエリ
-│       ├── validation.ts  # Zodバリデーション
+│       ├── scoring.ts     # ドメインロジック（+ 同ディレクトリに .test.ts）
 │       └── types.ts       # UI都合の複合型
-├── domain/models/         # ピュアなドメインモデル + Repositoryインターフェース
-├── repositories/          # Repository実装（Prisma）
-├── components/            # 共通UIコンポーネント（ロジックなし）
-├── lib/                   # 外部サービス連携
-├── hooks/                 # Reactカスタムフック
-├── constants/             # 定数
-├── types/                 # 共通型定義
-├── utils/                 # ユーティリティ
-└── styles/                # グローバルスタイル
+├── domain/models/         # ピュアなドメインモデル（Dish / Tag）
+├── repositories/          # データアクセス（JSON経由）
+├── components/ui/         # 共通UIコンポーネント（ロジックなし）
+├── constants/             # 定数（questions.ts など）
+└── lib/                   # data.ts（JSONロード+Zod）, utils.ts（cn）
+
+data/                      # 料理224件・タグ48件の静的JSON（唯一のデータソース）
+scripts/                   # データ構築スクリプト（アプリからは参照されない）
 
 docs/
 ├── spec/                  # Requirements, user stories, interview records
@@ -45,24 +44,29 @@ tasks/                     # Task files (single source of truth for status)
 
 ### Tech Stack
 
-- Next.js 16 (App Router) + TypeScript strict + Tailwind v4
-- Prisma (PostgreSQL) + マルチスキーマ構成
-- shadcn/ui + clsx + tailwind-merge
-- react-hook-form + Zod
+- Next.js 16 (App Router, `output: "export"`) + React 19 + TypeScript strict
+- Tailwind v4（`@theme inline` + CSS変数トークン）+ cva + clsx + tailwind-merge
+- Zod v4（データスキーマ検証）
 - Biome (lint + format)
-- Vitest (unit test)
-- Playwright (E2E)
+- Vitest (unit test, jsdom)
+- GitHub Pages デプロイ（`.github/workflows/deploy.yml`）
+
+**DBなし**（ADR-005）。Prisma / PostgreSQL は使わない。
+**サーバーなし**（ADR-006）。Server Actions / Route Handlers / `unstable_cache` は
+静的エクスポートでは動かないので書かないこと。
+react-hook-form / Playwright / shadcn/ui レジストリは未導入。
 
 ### Architecture Boundaries
 
-- `domain/models/` にはピュアなモデルとRepositoryインターフェースのみ
-- UI都合の型（JOINあり）は `features/` 内に閉じ込める
+- `domain/models/` にはピュアなモデル型のみ
+- UI都合の複合型は `features/` 内に閉じ込める
 - `features/` 以外から `features/` をimportしてはならない（app/のpage.tsxは例外）
 
 ### Data Flow
 
-- Read: Server Component → Repository or features/queries.ts → Prisma
-- Write: Client Form → Server Action → Zod → Repository → Prisma → revalidatePath
+- Read（ビルド時）: Server Component → repositories/ → lib/data.ts → data/dishes.json
+- Read（実行時）: Client Component → lib/data.ts（バンドル同梱）→ features/*/scoring.ts
+- データ更新は `scripts/` を実行して JSON を書き換え、再デプロイする
 
 ### Dev Flow
 
