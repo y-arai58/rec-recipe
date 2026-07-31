@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
 import type { Question } from "@/constants/questions"
+import { getSeason, getSeasonTagIds, SEASON_LABEL } from "@/constants/seasons"
 import { getAllDishesWithTags } from "@/lib/data"
 import { scoreDishes } from "../scoring"
 import type { RecommendResult } from "../types"
@@ -41,8 +42,18 @@ export function QuestionFlow({ questions }: Props) {
   }
 
   function recommend(excludeIds: string[]) {
-    const selectedTagIds = collectSelectedTagIds()
-    const scored = scoreDishes({ selectedTagIds, dishes, excludeIds })
+    const answeredTagIds = collectSelectedTagIds()
+
+    // 月の判定はイベントハンドラ内で行う。描画中に new Date() を読むと
+    // ビルド時のHTMLとブラウザの結果がずれる可能性があるため。
+    const month = new Date().getMonth() + 1
+    const seasonTagIds = getSeasonTagIds(month)
+
+    const scored = scoreDishes({
+      selectedTagIds: [...answeredTagIds, ...seasonTagIds],
+      dishes,
+      excludeIds,
+    })
 
     setResult({
       dishes: scored.map((dish) => ({
@@ -52,7 +63,8 @@ export function QuestionFlow({ questions }: Props) {
         score: dish.score,
         matchedTagIds: dish.matchedTagIds,
       })),
-      isRandom: selectedTagIds.length === 0,
+      isRandom: answeredTagIds.length === 0,
+      seasonLabel: SEASON_LABEL[getSeason(month)],
     })
     setSeenIds([...excludeIds, ...scored.map((dish) => dish.id)])
     setPhase("result")
@@ -120,11 +132,11 @@ export function QuestionFlow({ questions }: Props) {
           </button>
         </div>
 
-        {result.isRandom && (
-          <p className="rounded-lg bg-muted px-4 py-3 text-sm text-muted-foreground">
-            条件を選ばなかったので、ランダムに選びました。
-          </p>
-        )}
+        <p className="rounded-lg bg-muted px-4 py-3 text-sm text-muted-foreground">
+          {result.isRandom
+            ? `条件を選ばなかったので、${result.seasonLabel}向きの料理からランダムに選びました。`
+            : `${result.seasonLabel}向きの料理を少し優先しています。`}
+        </p>
 
         {result.dishes.length === 0 ? (
           <div className="space-y-4 py-6 text-center">

@@ -30,6 +30,38 @@ export const QUESTIONS: Question[] = [
     ],
   },
   {
+    id: "protein",
+    text: "主役の食材は？",
+    options: [
+      {
+        label: "肉",
+        tagIds: [
+          "tag-protein-chicken",
+          "tag-protein-pork",
+          "tag-protein-beef",
+          "tag-protein-mixed",
+        ],
+      },
+      {
+        label: "魚介",
+        tagIds: [
+          "tag-protein-salmon",
+          "tag-protein-whitefish",
+          "tag-protein-seafood",
+          "tag-protein-shrimp",
+          "tag-protein-squid",
+          "tag-protein-shellfish",
+        ],
+      },
+      {
+        label: "卵・豆腐・豆",
+        tagIds: ["tag-protein-egg", "tag-protein-tofu", "tag-protein-legume"],
+      },
+      { label: "野菜中心", tagIds: ["tag-protein-vegetable"] },
+      { label: "こだわらない", tagIds: [] },
+    ],
+  },
+  {
     id: "base",
     text: "主食は？",
     options: [
