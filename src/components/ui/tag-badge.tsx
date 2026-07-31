@@ -15,9 +15,15 @@ const tagBadgeVariants = cva(
         protein: "bg-[var(--tag-protein-bg)] text-[var(--tag-protein-text)]",
         season: "bg-[var(--tag-season-bg)] text-[var(--tag-season-text)]",
       },
+      /** 選択した条件に一致したタグであることを示す */
+      matched: {
+        true: "ring-1 ring-primary/60 font-semibold",
+        false: "",
+      },
     },
     defaultVariants: {
       category: "genre",
+      matched: false,
     },
   },
 )
@@ -30,9 +36,9 @@ export interface TagBadgeProps
 }
 
 const TagBadge = React.forwardRef<HTMLSpanElement, TagBadgeProps>(
-  ({ className, category, label, ...props }, ref) => {
+  ({ className, category, label, matched, ...props }, ref) => {
     return (
-      <span ref={ref} className={cn(tagBadgeVariants({ category }), className)} {...props}>
+      <span ref={ref} className={cn(tagBadgeVariants({ category, matched }), className)} {...props}>
         {label}
       </span>
     )

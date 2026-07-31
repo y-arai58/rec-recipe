@@ -10,7 +10,14 @@ type Props = {
 }
 
 export function DishCard({ dish }: Props) {
-  const visibleTags = dish.tags.slice(0, DISPLAY_TAG_LIMIT)
+  const matchedSet = new Set(dish.matchedTagIds)
+
+  // 一致したタグを先頭に寄せる。「なぜ選ばれたか」が一目で分かるようにするため
+  const orderedTags = [
+    ...dish.tags.filter((tag) => matchedSet.has(tag.id)),
+    ...dish.tags.filter((tag) => !matchedSet.has(tag.id)),
+  ]
+  const visibleTags = orderedTags.slice(0, DISPLAY_TAG_LIMIT)
 
   return (
     <Link
@@ -25,10 +32,20 @@ export function DishCard({ dish }: Props) {
           →
         </span>
       </div>
+
+      {dish.score > 0 && (
+        <p className="mt-1 text-xs text-muted-foreground">条件が {dish.score} つ一致</p>
+      )}
+
       {visibleTags.length > 0 && (
         <div className="mt-2.5 flex flex-wrap gap-1.5">
           {visibleTags.map((tag) => (
-            <TagBadge key={tag.id} category={tag.category as TagCategory} label={tag.name} />
+            <TagBadge
+              key={tag.id}
+              category={tag.category as TagCategory}
+              label={tag.name}
+              matched={matchedSet.has(tag.id)}
+            />
           ))}
         </div>
       )}
