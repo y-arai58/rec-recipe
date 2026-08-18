@@ -14,6 +14,7 @@ const tagBadgeVariants = cva(
         cookTime: "bg-[var(--tag-cooktime-bg)] text-[var(--tag-cooktime-text)]",
         protein: "bg-[var(--tag-protein-bg)] text-[var(--tag-protein-text)]",
         season: "bg-[var(--tag-season-bg)] text-[var(--tag-season-text)]",
+        role: "bg-[var(--tag-role-bg)] text-[var(--tag-role-text)]",
       },
       /** 選択した条件に一致したタグであることを示す */
       matched: {

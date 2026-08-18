@@ -4,8 +4,10 @@ import { useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
 import type { Question } from "@/constants/questions"
 import { getSeason, getSeasonTagIds, SEASON_LABEL } from "@/constants/seasons"
+import { MAIN_ROLES, SIDE_ROLES } from "@/domain/models/tag"
 import { getAllDishesWithTags } from "@/lib/data"
-import { scoreDishes } from "../scoring"
+import { pickSides } from "../pairing"
+import { filterByRoles, scoreDishes } from "../scoring"
 import type { RecommendResult } from "../types"
 import { DishCard } from "./DishCard"
 
@@ -26,8 +28,12 @@ export function QuestionFlow({ questions }: Props) {
   const [seenIds, setSeenIds] = useState<string[]>([])
   const [phase, setPhase] = useState<Phase>("questioning")
 
-  // 料理データはバンドル同梱の静的JSON。マウント中に変わらないので一度だけ組み立てる
-  const dishes = useMemo(() => getAllDishesWithTags(), [])
+  // 料理データはバンドル同梱の静的JSON。マウント中に変わらないので一度だけ組み立てる。
+  // 提案するのはメイン（丼・麺などの一皿完結 or 主菜）だけ。
+  // 副菜・汁物・主食は付け合わせとして各メインにぶら下げる。
+  const allDishes = useMemo(() => getAllDishesWithTags(), [])
+  const dishes = useMemo(() => filterByRoles(allDishes, MAIN_ROLES), [allDishes])
+  const sideCandidates = useMemo(() => filterByRoles(allDishes, SIDE_ROLES), [allDishes])
 
   const currentQuestion = questions[currentIndex]
   const isLastQuestion = currentIndex === questions.length - 1
@@ -55,14 +61,28 @@ export function QuestionFlow({ questions }: Props) {
       excludeIds,
     })
 
+    // 同じ提案リストの中で付け合わせがかぶらないように、選んだものを持ち回す
+    const usedSideIds: string[] = []
+
     setResult({
-      dishes: scored.map((dish) => ({
-        id: dish.id,
-        name: dish.name,
-        tags: dish.tags,
-        score: dish.score,
-        matchedTagIds: dish.matchedTagIds,
-      })),
+      dishes: scored.map((dish) => {
+        const sides = pickSides({
+          main: dish,
+          candidates: sideCandidates,
+          seasonTagIds,
+          excludeIds: usedSideIds,
+        })
+        usedSideIds.push(...sides.map((side) => side.id))
+
+        return {
+          id: dish.id,
+          name: dish.name,
+          tags: dish.tags,
+          score: dish.score,
+          matchedTagIds: dish.matchedTagIds,
+          sides,
+        }
+      }),
       isRandom: answeredTagIds.length === 0,
       seasonLabel: SEASON_LABEL[getSeason(month)],
     })

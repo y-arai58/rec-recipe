@@ -6,9 +6,18 @@ import { TAG_CATEGORIES } from "@/domain/models/tag"
 import { findDishById, getAllDishIds } from "@/repositories/dishRepository"
 
 // タグカテゴリの表示順と日本語ラベル
-const CATEGORY_ORDER: TagCategory[] = ["genre", "volume", "base", "protein", "cookTime", "season"]
+const CATEGORY_ORDER: TagCategory[] = [
+  "role",
+  "genre",
+  "volume",
+  "base",
+  "protein",
+  "cookTime",
+  "season",
+]
 
 const CATEGORY_LABEL: Record<TagCategory, string> = {
+  role: "献立での役割",
   genre: "ジャンル",
   volume: "ボリューム",
   base: "主食",

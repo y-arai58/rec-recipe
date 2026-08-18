@@ -1,4 +1,5 @@
 import type { DishWithTags } from "@/domain/models/dish"
+import { type DishRole, getRole } from "@/domain/models/tag"
 
 const DEFAULT_LIMIT = 5
 
@@ -16,6 +17,19 @@ export type ScoredDish = DishWithTags & {
   score: number
   /** 選択条件と実際に一致したタグID。「なぜこれが選ばれたか」の表示に使う */
   matchedTagIds: string[]
+}
+
+/**
+ * 指定した役割の料理だけを返す。
+ * レコメンドはメイン（onedish / main）だけを提案し、
+ * 副菜・汁物・主食は付け合わせ（pairing.ts）として出す。
+ */
+export function filterByRoles(dishes: DishWithTags[], roles: DishRole[]): DishWithTags[] {
+  const allowed = new Set(roles)
+  return dishes.filter((dish) => {
+    const role = getRole(dish.tagIds)
+    return role !== undefined && allowed.has(role)
+  })
 }
 
 /**
