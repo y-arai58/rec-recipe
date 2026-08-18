@@ -113,4 +113,65 @@ describe("scoreDishes", () => {
     expect(dish.name).toBe("dish-z")
     expect(dish.tags).toHaveLength(1)
   })
+
+  it("matchedTagIds は選択条件と一致したタグだけを含む", () => {
+    const result = scoreDishes({
+      selectedTagIds: ["tag-a", "tag-c", "tag-zzz"],
+      dishes: [makeDish("x", ["tag-a", "tag-b", "tag-c"])],
+      limit: 1,
+    })
+    expect(result[0].matchedTagIds).toEqual(["tag-a", "tag-c"])
+    expect(result[0].score).toBe(2)
+  })
+
+  it("一致タグが無い場合 matchedTagIds は空配列", () => {
+    const result = scoreDishes({
+      selectedTagIds: ["tag-none"],
+      dishes: [makeDish("x", ["tag-a"])],
+      limit: 1,
+    })
+    expect(result[0].matchedTagIds).toEqual([])
+  })
+
+  it("random を固定すると同じ入力で同じ順序を返す", () => {
+    const fixedRandom = () => 0.5
+    const run = () =>
+      scoreDishes({ selectedTagIds: ["tag-a"], dishes: DISHES, random: fixedRandom }).map(
+        (d) => d.id,
+      )
+
+    expect(run()).toEqual(run())
+  })
+
+  it("スコアの並びは乱数に影響されない", () => {
+    // シャッフルキーが降順になるような乱数を与えてもスコア順は保たれる
+    let n = 0
+    const result = scoreDishes({
+      selectedTagIds: ["tag-a", "tag-b", "tag-c"],
+      dishes: DISHES,
+      random: () => {
+        n += 1
+        return 1 / n
+      },
+    })
+
+    const scores = result.map((d) => d.score)
+    expect(scores).toEqual([...scores].sort((a, b) => b - a))
+  })
+
+  it("提示済みを除外して呼び直すと重複しない次の候補が出る", () => {
+    const first = scoreDishes({ selectedTagIds: ["tag-a"], dishes: DISHES, limit: 2 })
+    const seen = first.map((d) => d.id)
+    const second = scoreDishes({
+      selectedTagIds: ["tag-a"],
+      dishes: DISHES,
+      excludeIds: seen,
+      limit: 2,
+    })
+
+    expect(second).toHaveLength(2)
+    for (const dish of second) {
+      expect(seen).not.toContain(dish.id)
+    }
+  })
 })

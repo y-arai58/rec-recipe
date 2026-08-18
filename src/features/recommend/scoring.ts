@@ -8,9 +8,15 @@ export type ScoringOptions = {
   /** 再レコメンド時に除外する料理ID */
   excludeIds?: string[]
   limit?: number
+  /** 同スコア内シャッフルの乱数源。テストでは固定値を渡せる */
+  random?: () => number
 }
 
-export type ScoredDish = DishWithTags & { score: number }
+export type ScoredDish = DishWithTags & {
+  score: number
+  /** 選択条件と実際に一致したタグID。「なぜこれが選ばれたか」の表示に使う */
+  matchedTagIds: string[]
+}
 
 /**
  * 選択タグIDと料理タグの一致数でスコアリングし、上位 limit 件を返す。
@@ -19,23 +25,33 @@ export type ScoredDish = DishWithTags & { score: number }
  * - excludeIds に含まれる料理は除外
  */
 export function scoreDishes(options: ScoringOptions): ScoredDish[] {
-  const { selectedTagIds, dishes, excludeIds = [], limit = DEFAULT_LIMIT } = options
+  const {
+    selectedTagIds,
+    dishes,
+    excludeIds = [],
+    limit = DEFAULT_LIMIT,
+    random = Math.random,
+  } = options
 
   const selectedSet = new Set(selectedTagIds)
   const excludeSet = new Set(excludeIds)
 
-  const scored: ScoredDish[] = dishes
+  // シャッフル用のキーは料理ごとに1回だけ確定させる。
+  // 比較関数の中で乱数を引くと比較の一貫性が壊れ、ソート結果が不定になるため。
+  const scored = dishes
     .filter((dish) => !excludeSet.has(dish.id))
-    .map((dish) => ({
-      ...dish,
-      score: dish.tagIds.filter((id) => selectedSet.has(id)).length,
-    }))
+    .map((dish) => {
+      const matchedTagIds = dish.tagIds.filter((id) => selectedSet.has(id))
+      return {
+        dish: { ...dish, score: matchedTagIds.length, matchedTagIds },
+        shuffleKey: random(),
+      }
+    })
 
-  // スコア降順 → 同スコア内をシャッフル
   scored.sort((a, b) => {
-    if (b.score !== a.score) return b.score - a.score
-    return Math.random() - 0.5
+    if (b.dish.score !== a.dish.score) return b.dish.score - a.dish.score
+    return a.shuffleKey - b.shuffleKey
   })
 
-  return scored.slice(0, limit)
+  return scored.slice(0, limit).map((entry) => entry.dish)
 }

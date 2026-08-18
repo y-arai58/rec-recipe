@@ -1,0 +1,629 @@
+{
+  "_comment": "料理ごとの材料（2人分）。手で管理するファイルで、scripts/ からは書き換えない。ここに載っている料理だけが献立プランナーの候補になる。",
+  "dishIngredients": [
+    {
+      "dishId": "dish-001",
+      "items": [
+        { "ingredientId": "ing-pork-sliced", "amount": 200 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-carrot", "amount": 0.5 },
+        { "ingredientId": "ing-potato", "amount": 2 },
+        { "ingredientId": "ing-curry-roux", "amount": 0.5 },
+        { "ingredientId": "ing-rice", "amount": 1.5 },
+        { "ingredientId": "ing-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-002",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 150 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-egg", "amount": 4 },
+        { "ingredientId": "ing-rice", "amount": 1.5 },
+        { "ingredientId": "ing-ketchup", "amount": 1 },
+        { "ingredientId": "ing-butter", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-004",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 200 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-egg", "amount": 4 },
+        { "ingredientId": "ing-rice", "amount": 1.5 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 },
+        { "ingredientId": "ing-dashi", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-005",
+      "items": [
+        { "ingredientId": "ing-beef-sliced", "amount": 200 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-ginger", "amount": 1 },
+        { "ingredientId": "ing-rice", "amount": 1.5 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 },
+        { "ingredientId": "ing-sugar", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-007",
+      "items": [
+        { "ingredientId": "ing-pork-loin", "amount": 250 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-egg", "amount": 3 },
+        { "ingredientId": "ing-flour", "amount": 30 },
+        { "ingredientId": "ing-panko", "amount": 50 },
+        { "ingredientId": "ing-rice", "amount": 1.5 },
+        { "ingredientId": "ing-oil", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-011",
+      "items": [
+        { "ingredientId": "ing-rice", "amount": 1.5 },
+        { "ingredientId": "ing-egg", "amount": 3 },
+        { "ingredientId": "ing-negi", "amount": 1 },
+        { "ingredientId": "ing-bacon", "amount": 60 },
+        { "ingredientId": "ing-sesame-oil", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-018",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 250 },
+        { "ingredientId": "ing-piman", "amount": 2 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-garlic", "amount": 2 },
+        { "ingredientId": "ing-egg", "amount": 2 },
+        { "ingredientId": "ing-rice", "amount": 1.5 },
+        { "ingredientId": "ing-oyster-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-019",
+      "items": [
+        { "ingredientId": "ing-ground-meat", "amount": 250 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-carrot", "amount": 0.5 },
+        { "ingredientId": "ing-tomato", "amount": 1 },
+        { "ingredientId": "ing-curry-roux", "amount": 0.5 },
+        { "ingredientId": "ing-rice", "amount": 1.5 }
+      ]
+    },
+    {
+      "dishId": "dish-031",
+      "items": [
+        { "ingredientId": "ing-yakisoba-men", "amount": 2 },
+        { "ingredientId": "ing-pork-belly", "amount": 150 },
+        { "ingredientId": "ing-cabbage", "amount": 0.25 },
+        { "ingredientId": "ing-carrot", "amount": 0.3 },
+        { "ingredientId": "ing-moyashi", "amount": 1 },
+        { "ingredientId": "ing-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-037",
+      "items": [
+        { "ingredientId": "ing-ground-meat", "amount": 200 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-carrot", "amount": 0.5 },
+        { "ingredientId": "ing-tomato", "amount": 2 },
+        { "ingredientId": "ing-garlic", "amount": 1 },
+        { "ingredientId": "ing-pasta", "amount": 200 }
+      ]
+    },
+    {
+      "dishId": "dish-046",
+      "items": [
+        { "ingredientId": "ing-pasta", "amount": 200 },
+        { "ingredientId": "ing-bacon", "amount": 60 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-piman", "amount": 2 },
+        { "ingredientId": "ing-ketchup", "amount": 1 },
+        { "ingredientId": "ing-butter", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-053",
+      "items": [
+        { "ingredientId": "ing-pork-belly", "amount": 150 },
+        { "ingredientId": "ing-daikon", "amount": 0.25 },
+        { "ingredientId": "ing-carrot", "amount": 0.5 },
+        { "ingredientId": "ing-gobo", "amount": 0.5 },
+        { "ingredientId": "ing-negi", "amount": 0.5 },
+        { "ingredientId": "ing-tofu", "amount": 0.5 },
+        { "ingredientId": "ing-miso", "amount": 1 },
+        { "ingredientId": "ing-dashi", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-068",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 400 },
+        { "ingredientId": "ing-ginger", "amount": 1 },
+        { "ingredientId": "ing-garlic", "amount": 1 },
+        { "ingredientId": "ing-katakuriko", "amount": 50 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-sake", "amount": 1 },
+        { "ingredientId": "ing-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-069",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 300 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 },
+        { "ingredientId": "ing-sugar", "amount": 1 },
+        { "ingredientId": "ing-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-070",
+      "items": [
+        { "ingredientId": "ing-chicken-breast", "amount": 300 },
+        { "ingredientId": "ing-egg", "amount": 2 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-flour", "amount": 40 },
+        { "ingredientId": "ing-vinegar", "amount": 1 },
+        { "ingredientId": "ing-sugar", "amount": 1 },
+        { "ingredientId": "ing-mayo", "amount": 1 },
+        { "ingredientId": "ing-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-071",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 300 },
+        { "ingredientId": "ing-garlic", "amount": 1 },
+        { "ingredientId": "ing-broccoli", "amount": 0.5 },
+        { "ingredientId": "ing-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-080",
+      "items": [
+        { "ingredientId": "ing-pork-loin", "amount": 250 },
+        { "ingredientId": "ing-ginger", "amount": 2 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-cabbage", "amount": 0.25 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 },
+        { "ingredientId": "ing-sake", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-082",
+      "items": [
+        { "ingredientId": "ing-pork-loin", "amount": 250 },
+        { "ingredientId": "ing-egg", "amount": 1 },
+        { "ingredientId": "ing-cabbage", "amount": 0.25 },
+        { "ingredientId": "ing-flour", "amount": 30 },
+        { "ingredientId": "ing-panko", "amount": 60 },
+        { "ingredientId": "ing-oil", "amount": 1 },
+        { "ingredientId": "ing-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-083",
+      "items": [
+        { "ingredientId": "ing-ground-meat", "amount": 200 },
+        { "ingredientId": "ing-cabbage", "amount": 0.5 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-egg", "amount": 1 },
+        { "ingredientId": "ing-consomme", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-084",
+      "items": [
+        { "ingredientId": "ing-pork-belly", "amount": 200 },
+        { "ingredientId": "ing-daikon", "amount": 0.5 },
+        { "ingredientId": "ing-ginger", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 },
+        { "ingredientId": "ing-sake", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-088",
+      "items": [
+        { "ingredientId": "ing-pork-belly", "amount": 200 },
+        { "ingredientId": "ing-kimchi", "amount": 200 },
+        { "ingredientId": "ing-nira", "amount": 0.5 },
+        { "ingredientId": "ing-sesame-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-091",
+      "items": [
+        { "ingredientId": "ing-pork-belly", "amount": 200 },
+        { "ingredientId": "ing-cabbage", "amount": 0.5 },
+        { "ingredientId": "ing-piman", "amount": 2 },
+        { "ingredientId": "ing-negi", "amount": 0.5 },
+        { "ingredientId": "ing-tobanjan", "amount": 1 },
+        { "ingredientId": "ing-oyster-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-094",
+      "items": [
+        { "ingredientId": "ing-beef-sliced", "amount": 300 },
+        { "ingredientId": "ing-negi", "amount": 2 },
+        { "ingredientId": "ing-hakusai", "amount": 0.25 },
+        { "ingredientId": "ing-tofu", "amount": 1 },
+        { "ingredientId": "ing-shimeji", "amount": 1 },
+        { "ingredientId": "ing-egg", "amount": 2 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-sugar", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-100",
+      "items": [
+        { "ingredientId": "ing-ground-meat", "amount": 300 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-egg", "amount": 1 },
+        { "ingredientId": "ing-panko", "amount": 40 },
+        { "ingredientId": "ing-milk", "amount": 50 },
+        { "ingredientId": "ing-ketchup", "amount": 1 },
+        { "ingredientId": "ing-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-101",
+      "items": [
+        { "ingredientId": "ing-ground-meat", "amount": 300 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-egg", "amount": 1 },
+        { "ingredientId": "ing-panko", "amount": 40 },
+        { "ingredientId": "ing-tomato", "amount": 2 },
+        { "ingredientId": "ing-shimeji", "amount": 1 },
+        { "ingredientId": "ing-ketchup", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-103",
+      "items": [
+        { "ingredientId": "ing-potato", "amount": 4 },
+        { "ingredientId": "ing-ground-meat", "amount": 150 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-egg", "amount": 1 },
+        { "ingredientId": "ing-flour", "amount": 30 },
+        { "ingredientId": "ing-panko", "amount": 60 },
+        { "ingredientId": "ing-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-104",
+      "items": [
+        { "ingredientId": "ing-ground-meat", "amount": 200 },
+        { "ingredientId": "ing-cabbage", "amount": 0.25 },
+        { "ingredientId": "ing-nira", "amount": 0.5 },
+        { "ingredientId": "ing-garlic", "amount": 1 },
+        { "ingredientId": "ing-ginger", "amount": 1 },
+        { "ingredientId": "ing-gyoza-kawa", "amount": 24 },
+        { "ingredientId": "ing-sesame-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-107",
+      "items": [
+        { "ingredientId": "ing-ground-meat", "amount": 250 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-egg", "amount": 1 },
+        { "ingredientId": "ing-katakuriko", "amount": 20 },
+        { "ingredientId": "ing-ketchup", "amount": 1 },
+        { "ingredientId": "ing-vinegar", "amount": 1 },
+        { "ingredientId": "ing-sugar", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-112",
+      "items": [
+        { "ingredientId": "ing-saba", "amount": 2 },
+        { "ingredientId": "ing-ginger", "amount": 1 },
+        { "ingredientId": "ing-miso", "amount": 1 },
+        { "ingredientId": "ing-sugar", "amount": 1 },
+        { "ingredientId": "ing-sake", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-113",
+      "items": [
+        { "ingredientId": "ing-buri", "amount": 2 },
+        { "ingredientId": "ing-ginger", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 },
+        { "ingredientId": "ing-sake", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-114",
+      "items": [
+        { "ingredientId": "ing-salmon", "amount": 2 },
+        { "ingredientId": "ing-daikon", "amount": 0.2 }
+      ]
+    },
+    {
+      "dishId": "dish-119",
+      "items": [
+        { "ingredientId": "ing-whitefish", "amount": 2 },
+        { "ingredientId": "ing-flour", "amount": 20 },
+        { "ingredientId": "ing-butter", "amount": 1 },
+        { "ingredientId": "ing-broccoli", "amount": 0.5 }
+      ]
+    },
+    {
+      "dishId": "dish-124",
+      "items": [
+        { "ingredientId": "ing-shrimp", "amount": 200 },
+        { "ingredientId": "ing-negi", "amount": 1 },
+        { "ingredientId": "ing-garlic", "amount": 1 },
+        { "ingredientId": "ing-ginger", "amount": 1 },
+        { "ingredientId": "ing-tobanjan", "amount": 1 },
+        { "ingredientId": "ing-ketchup", "amount": 1 },
+        { "ingredientId": "ing-katakuriko", "amount": 20 }
+      ]
+    },
+    {
+      "dishId": "dish-132",
+      "items": [
+        { "ingredientId": "ing-salmon", "amount": 2 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-shimeji", "amount": 1 },
+        { "ingredientId": "ing-butter", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-142",
+      "items": [
+        { "ingredientId": "ing-egg", "amount": 4 },
+        { "ingredientId": "ing-nira", "amount": 1 },
+        { "ingredientId": "ing-sesame-oil", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-145",
+      "items": [
+        { "ingredientId": "ing-tofu", "amount": 1 },
+        { "ingredientId": "ing-ground-meat", "amount": 150 },
+        { "ingredientId": "ing-negi", "amount": 1 },
+        { "ingredientId": "ing-garlic", "amount": 1 },
+        { "ingredientId": "ing-ginger", "amount": 1 },
+        { "ingredientId": "ing-tobanjan", "amount": 1 },
+        { "ingredientId": "ing-katakuriko", "amount": 20 },
+        { "ingredientId": "ing-sesame-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-149",
+      "items": [
+        { "ingredientId": "ing-tofu", "amount": 1 },
+        { "ingredientId": "ing-beef-sliced", "amount": 150 },
+        { "ingredientId": "ing-negi", "amount": 1 },
+        { "ingredientId": "ing-shimeji", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-sugar", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-153",
+      "items": [
+        { "ingredientId": "ing-pork-sliced", "amount": 200 },
+        { "ingredientId": "ing-potato", "amount": 3 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-carrot", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-sugar", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 },
+        { "ingredientId": "ing-dashi", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-154",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 250 },
+        { "ingredientId": "ing-carrot", "amount": 1 },
+        { "ingredientId": "ing-gobo", "amount": 1 },
+        { "ingredientId": "ing-renkon", "amount": 0.5 },
+        { "ingredientId": "ing-shimeji", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 },
+        { "ingredientId": "ing-mirin", "amount": 1 },
+        { "ingredientId": "ing-dashi", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-163",
+      "items": [
+        { "ingredientId": "ing-pork-sliced", "amount": 150 },
+        { "ingredientId": "ing-cabbage", "amount": 0.25 },
+        { "ingredientId": "ing-carrot", "amount": 0.5 },
+        { "ingredientId": "ing-moyashi", "amount": 1 },
+        { "ingredientId": "ing-piman", "amount": 2 },
+        { "ingredientId": "ing-sesame-oil", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-174",
+      "items": [
+        { "ingredientId": "ing-piman", "amount": 4 },
+        { "ingredientId": "ing-ground-meat", "amount": 200 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-egg", "amount": 1 },
+        { "ingredientId": "ing-panko", "amount": 30 },
+        { "ingredientId": "ing-ketchup", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-180",
+      "items": [
+        { "ingredientId": "ing-pork-loin", "amount": 200 },
+        { "ingredientId": "ing-piman", "amount": 4 },
+        { "ingredientId": "ing-negi", "amount": 0.5 },
+        { "ingredientId": "ing-oyster-sauce", "amount": 1 },
+        { "ingredientId": "ing-katakuriko", "amount": 20 }
+      ]
+    },
+    {
+      "dishId": "dish-183",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 400 },
+        { "ingredientId": "ing-hakusai", "amount": 0.5 },
+        { "ingredientId": "ing-negi", "amount": 2 },
+        { "ingredientId": "ing-tofu", "amount": 1 },
+        { "ingredientId": "ing-shimeji", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-184",
+      "items": [
+        { "ingredientId": "ing-pork-belly", "amount": 250 },
+        { "ingredientId": "ing-kimchi", "amount": 300 },
+        { "ingredientId": "ing-hakusai", "amount": 0.5 },
+        { "ingredientId": "ing-negi", "amount": 1 },
+        { "ingredientId": "ing-tofu", "amount": 1 },
+        { "ingredientId": "ing-nira", "amount": 0.5 },
+        { "ingredientId": "ing-miso", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-191",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 200 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-macaroni", "amount": 100 },
+        { "ingredientId": "ing-milk", "amount": 400 },
+        { "ingredientId": "ing-cheese", "amount": 100 },
+        { "ingredientId": "ing-butter", "amount": 1 },
+        { "ingredientId": "ing-flour", "amount": 30 }
+      ]
+    },
+    {
+      "dishId": "dish-198",
+      "items": [
+        { "ingredientId": "ing-cabbage", "amount": 0.5 },
+        { "ingredientId": "ing-pork-belly", "amount": 150 },
+        { "ingredientId": "ing-egg", "amount": 3 },
+        { "ingredientId": "ing-flour", "amount": 200 },
+        { "ingredientId": "ing-sauce", "amount": 1 },
+        { "ingredientId": "ing-mayo", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-202",
+      "items": [
+        { "ingredientId": "ing-nasu", "amount": 3 },
+        { "ingredientId": "ing-ground-meat", "amount": 150 },
+        { "ingredientId": "ing-negi", "amount": 1 },
+        { "ingredientId": "ing-garlic", "amount": 1 },
+        { "ingredientId": "ing-tobanjan", "amount": 1 },
+        { "ingredientId": "ing-katakuriko", "amount": 20 },
+        { "ingredientId": "ing-sesame-oil", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-205",
+      "items": [
+        { "ingredientId": "ing-pork-loin", "amount": 200 },
+        { "ingredientId": "ing-piman", "amount": 4 },
+        { "ingredientId": "ing-negi", "amount": 0.5 },
+        { "ingredientId": "ing-oyster-sauce", "amount": 1 },
+        { "ingredientId": "ing-katakuriko", "amount": 20 }
+      ]
+    },
+    {
+      "dishId": "dish-206",
+      "items": [
+        { "ingredientId": "ing-pork-loin", "amount": 250 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-piman", "amount": 2 },
+        { "ingredientId": "ing-carrot", "amount": 0.5 },
+        { "ingredientId": "ing-katakuriko", "amount": 30 },
+        { "ingredientId": "ing-vinegar", "amount": 1 },
+        { "ingredientId": "ing-sugar", "amount": 1 },
+        { "ingredientId": "ing-ketchup", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-207",
+      "items": [
+        { "ingredientId": "ing-pork-sliced", "amount": 150 },
+        { "ingredientId": "ing-hakusai", "amount": 0.25 },
+        { "ingredientId": "ing-carrot", "amount": 0.5 },
+        { "ingredientId": "ing-shimeji", "amount": 1 },
+        { "ingredientId": "ing-shrimp", "amount": 100 },
+        { "ingredientId": "ing-katakuriko", "amount": 20 },
+        { "ingredientId": "ing-oyster-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-212",
+      "items": [
+        { "ingredientId": "ing-pork-sliced", "amount": 200 },
+        { "ingredientId": "ing-cabbage", "amount": 0.25 },
+        { "ingredientId": "ing-carrot", "amount": 0.5 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-moyashi", "amount": 1 },
+        { "ingredientId": "ing-piman", "amount": 2 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-218",
+      "items": [
+        { "ingredientId": "ing-rice", "amount": 1.5 },
+        { "ingredientId": "ing-egg", "amount": 3 },
+        { "ingredientId": "ing-negi", "amount": 1 },
+        { "ingredientId": "ing-bacon", "amount": 60 },
+        { "ingredientId": "ing-sesame-oil", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-219",
+      "items": [
+        { "ingredientId": "ing-chicken-thigh", "amount": 250 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-carrot", "amount": 1 },
+        { "ingredientId": "ing-potato", "amount": 2 },
+        { "ingredientId": "ing-broccoli", "amount": 0.5 },
+        { "ingredientId": "ing-milk", "amount": 300 },
+        { "ingredientId": "ing-stew-roux", "amount": 0.5 }
+      ]
+    },
+    {
+      "dishId": "dish-220",
+      "items": [
+        { "ingredientId": "ing-pork-loin", "amount": 200 },
+        { "ingredientId": "ing-onion", "amount": 1 },
+        { "ingredientId": "ing-carrot", "amount": 1 },
+        { "ingredientId": "ing-potato", "amount": 2 },
+        { "ingredientId": "ing-cabbage", "amount": 0.25 },
+        { "ingredientId": "ing-consomme", "amount": 1 }
+      ]
+    },
+    {
+      "dishId": "dish-221",
+      "items": [
+        { "ingredientId": "ing-pork-loin", "amount": 250 },
+        { "ingredientId": "ing-garlic", "amount": 1 },
+        { "ingredientId": "ing-onion", "amount": 0.5 },
+        { "ingredientId": "ing-butter", "amount": 1 },
+        { "ingredientId": "ing-soy-sauce", "amount": 1 }
+      ]
+    }
+  ]
+}

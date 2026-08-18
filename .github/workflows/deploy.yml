@@ -28,6 +28,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run check
+
+      # data/dishes.json のスキーマ検証もここで走る（実行時には検証しないため）
+      - name: Test
+        run: npm test
+
       - name: Build
         run: npm run build
 

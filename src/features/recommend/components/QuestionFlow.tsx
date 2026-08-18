@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
 import type { Question } from "@/constants/questions"
+import { getSeason, getSeasonTagIds, SEASON_LABEL } from "@/constants/seasons"
 import { getAllDishesWithTags } from "@/lib/data"
 import { scoreDishes } from "../scoring"
 import type { RecommendResult } from "../types"
@@ -21,11 +22,53 @@ export function QuestionFlow({ questions }: Props) {
     new Map(),
   )
   const [result, setResult] = useState<RecommendResult | null>(null)
+  // 一度でも提示した料理ID。「他の候補を見る」で除外する
+  const [seenIds, setSeenIds] = useState<string[]>([])
   const [phase, setPhase] = useState<Phase>("questioning")
+
+  // 料理データはバンドル同梱の静的JSON。マウント中に変わらないので一度だけ組み立てる
+  const dishes = useMemo(() => getAllDishesWithTags(), [])
 
   const currentQuestion = questions[currentIndex]
   const isLastQuestion = currentIndex === questions.length - 1
   const selectedIndices = selectionsByQuestion.get(currentIndex) ?? new Set<number>()
+
+  function collectSelectedTagIds(): string[] {
+    return questions.flatMap((question, questionIndex) =>
+      [...(selectionsByQuestion.get(questionIndex) ?? [])].flatMap(
+        (optionIndex) => question.options[optionIndex].tagIds,
+      ),
+    )
+  }
+
+  function recommend(excludeIds: string[]) {
+    const answeredTagIds = collectSelectedTagIds()
+
+    // 月の判定はイベントハンドラ内で行う。描画中に new Date() を読むと
+    // ビルド時のHTMLとブラウザの結果がずれる可能性があるため。
+    const month = new Date().getMonth() + 1
+    const seasonTagIds = getSeasonTagIds(month)
+
+    const scored = scoreDishes({
+      selectedTagIds: [...answeredTagIds, ...seasonTagIds],
+      dishes,
+      excludeIds,
+    })
+
+    setResult({
+      dishes: scored.map((dish) => ({
+        id: dish.id,
+        name: dish.name,
+        tags: dish.tags,
+        score: dish.score,
+        matchedTagIds: dish.matchedTagIds,
+      })),
+      isRandom: answeredTagIds.length === 0,
+      seasonLabel: SEASON_LABEL[getSeason(month)],
+    })
+    setSeenIds([...excludeIds, ...scored.map((dish) => dish.id)])
+    setPhase("result")
+  }
 
   function toggleOption(index: number) {
     setSelectionsByQuestion((prev) => {
@@ -43,20 +86,7 @@ export function QuestionFlow({ questions }: Props) {
 
   function handleNext() {
     if (isLastQuestion) {
-      const allTagIds = questions.flatMap((q, qi) =>
-        [...(selectionsByQuestion.get(qi) ?? [])].flatMap((i) => q.options[i].tagIds),
-      )
-      const dishes = getAllDishesWithTags()
-      const scored = scoreDishes({ selectedTagIds: allTagIds, dishes })
-      setResult({
-        dishes: scored.map((d) => ({
-          id: d.id,
-          name: d.name,
-          tags: d.tags,
-          score: d.score,
-        })),
-      })
-      setPhase("result")
+      recommend([])
     } else {
       setCurrentIndex((i) => i + 1)
     }
@@ -66,40 +96,84 @@ export function QuestionFlow({ questions }: Props) {
     setCurrentIndex((i) => i - 1)
   }
 
+  /** 同じ条件のまま、まだ見ていない料理を提案する */
+  function handleShowMore() {
+    recommend(seenIds)
+  }
+
+  /** 回答を保持したまま質問画面へ戻る */
+  function handleEditConditions() {
+    setCurrentIndex(questions.length - 1)
+    setPhase("questioning")
+  }
+
   function handleReset() {
     setCurrentIndex(0)
     setSelectionsByQuestion(new Map())
     setResult(null)
+    setSeenIds([])
     setPhase("questioning")
   }
 
   // ── 結果画面 ──────────────────────────────────────────────
   if (phase === "result" && result) {
+    const hasMore = seenIds.length < dishes.length
+
     return (
-      <div className="space-y-5">
-        <div className="flex items-center justify-between">
+      <div className="space-y-5" aria-live="polite">
+        <div className="flex items-baseline justify-between gap-3">
           <h2 className="text-lg font-bold text-foreground">おすすめの料理</h2>
           <button
             type="button"
             onClick={handleReset}
-            className="min-h-[44px] px-3 text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+            className="min-h-[44px] shrink-0 px-2 text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
           >
-            もう一度
+            最初から
           </button>
         </div>
 
+        <p className="rounded-lg bg-muted px-4 py-3 text-sm text-muted-foreground">
+          {result.isRandom
+            ? `条件を選ばなかったので、${result.seasonLabel}向きの料理からランダムに選びました。`
+            : `${result.seasonLabel}向きの料理を少し優先しています。`}
+        </p>
+
         {result.dishes.length === 0 ? (
-          <p className="py-8 text-center text-sm text-muted-foreground">
-            条件に合う料理が見つかりませんでした。
-          </p>
+          <div className="space-y-4 py-6 text-center">
+            <p className="text-sm text-muted-foreground">
+              {seenIds.length > 0
+                ? "候補を出しきりました。"
+                : "条件に合う料理が見つかりませんでした。"}
+            </p>
+            <Button variant="outline" size="lg" onClick={handleReset}>
+              最初からやり直す
+            </Button>
+          </div>
         ) : (
-          <ul className="space-y-3">
-            {result.dishes.map((dish) => (
-              <li key={dish.id}>
-                <DishCard dish={dish} />
-              </li>
-            ))}
-          </ul>
+          <>
+            <ul className="space-y-3">
+              {result.dishes.map((dish) => (
+                <li key={dish.id}>
+                  <DishCard dish={dish} />
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-col gap-2 pt-1">
+              {hasMore && (
+                <Button variant="outline" size="lg" className="w-full" onClick={handleShowMore}>
+                  他の候補を見る
+                </Button>
+              )}
+              <button
+                type="button"
+                onClick={handleEditConditions}
+                className="min-h-[44px] text-sm text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+              >
+                条件を変える
+              </button>
+            </div>
+          </>
         )}
       </div>
     )
@@ -124,23 +198,27 @@ export function QuestionFlow({ questions }: Props) {
         )}
       </div>
 
-      {/* 質問文 */}
-      <h2 className="text-xl font-bold leading-snug text-foreground">{currentQuestion.text}</h2>
+      {/* 質問文 + 選択肢（複数選択可・未選択のまま進める） */}
+      <fieldset className="min-w-0 space-y-5">
+        <legend className="text-xl font-bold leading-snug text-foreground">
+          {currentQuestion.text}
+        </legend>
 
-      {/* 選択肢 */}
-      <div className="flex flex-col gap-3">
-        {currentQuestion.options.map((option, i) => (
-          <Button
-            key={option.label}
-            variant={selectedIndices.has(i) ? "default" : "outline"}
-            size="lg"
-            className="w-full justify-start text-left text-base"
-            onClick={() => toggleOption(i)}
-          >
-            {option.label}
-          </Button>
-        ))}
-      </div>
+        <div className="flex flex-col gap-3">
+          {currentQuestion.options.map((option, i) => (
+            <Button
+              key={option.label}
+              variant={selectedIndices.has(i) ? "default" : "outline"}
+              size="lg"
+              className="w-full justify-start text-left text-base"
+              aria-pressed={selectedIndices.has(i)}
+              onClick={() => toggleOption(i)}
+            >
+              {option.label}
+            </Button>
+          ))}
+        </div>
+      </fieldset>
 
       {/* 次へ */}
       <Button size="lg" className="w-full" onClick={handleNext}>

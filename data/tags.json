@@ -44,6 +44,7 @@
     { "id": "tag-protein-egg", "name": "卵", "category": "protein" },
     { "id": "tag-protein-tofu", "name": "豆腐", "category": "protein" },
     { "id": "tag-protein-legume", "name": "豆・大豆", "category": "protein" },
+    { "id": "tag-protein-vegetable", "name": "野菜メイン", "category": "protein" },
     { "id": "tag-protein-none", "name": "なし", "category": "protein" },
 
     { "id": "tag-season-spring", "name": "春", "category": "season" },

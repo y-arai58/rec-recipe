@@ -5,7 +5,8 @@ import { defineConfig } from "vitest/config"
 export default defineConfig({
   plugins: [react()],
   test: {
-    environment: "jsdom",
+    // jsdom 29 は Node 20 の require(ESM) で top-level await に当たって起動できないため happy-dom を使う
+    environment: "happy-dom",
     globals: true,
     passWithNoTests: true,
   },
