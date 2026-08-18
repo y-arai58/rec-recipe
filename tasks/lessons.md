@@ -89,3 +89,38 @@
 - **Prevention:** スキーマ定義は `*-schema.ts` に分離し、import してよいのは
   テストとスクリプトだけにする。データの妥当性は CI のテストで担保する
 - **Applied:** true（CLAUDE.md の Tech Stack に明記済み）
+
+### L-004: 「提案する」対象は、データに役割の軸が無いと絞れない
+- **Date:** 2026-08-18
+- **Category:** implementation
+- **Task:** TASK-015
+- **Context:** 質問フローの結果に「ほうれん草のおひたし」「味噌汁」が
+  カレーライスと同列に並んでいた
+- **Mistake:** タグは genre / volume / base / protein / cookTime / season の
+  6軸あったが、どれも「その料理が食事の主役になるか」を表していなかった。
+  スコアが高ければ副菜でもメインとして提案してしまう
+- **Correction:** role 軸（onedish / main / side / soup / staple）を足し、
+  提案は onedish / main だけ、残りはメインの付け合わせとして出すようにした
+- **Root Cause:** 「料理の属性」は増やしていたが、
+  「アプリが何を提案する場所なのか」を表す軸を持っていなかった
+- **Prevention:** レコメンドやリスト表示を作るときは、
+  「この一覧に出てよいものは何か」を表すフラグ／軸がデータにあるか先に確認する。
+  無ければ UI で除外条件を書く前にデータ側の軸として足す
+- **Applied:** false
+
+### L-005: 主菜と副菜はキーワードでは分けられない。料理名で明示的に持つ
+- **Date:** 2026-08-18
+- **Category:** implementation
+- **Task:** TASK-015
+- **Context:** `scripts/tag-assign.ts` に role の判定を足すとき、
+  他のカテゴリと同じくキーワードルールで書こうとした
+- **Mistake:** 「煮物」「炒め物」「サラダ」はどれも主菜にも副菜にもなる。
+  肉じゃが（主菜）とかぼちゃの煮物（副菜）、
+  コブサラダ（主菜）とポテトサラダ（副菜）を同じキーワードでは分けられない
+- **Correction:** side / soup / staple / 例外の onedish は料理名の Set で明示し、
+  残りは主食タグ（rice / donburi / noodle / bread）の有無から導出した
+- **Root Cause:** 料理名は「何で作るか」は表すが「食卓での役割」は表さない。
+  役割は名前から機械的には決まらない
+- **Prevention:** 新しいタグ軸を足すときは、まず既存の料理名10件で
+  キーワード判定が成立するか手で試す。反例が2件出たら明示リストにする
+- **Applied:** false

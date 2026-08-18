@@ -32,6 +32,8 @@ const TAG_SAMPLES: { category: TagCategory; label: string }[] = [
   { category: "protein", label: "豆腐" },
   { category: "season", label: "通年" },
   { category: "season", label: "冬" },
+  { category: "role", label: "主菜" },
+  { category: "role", label: "副菜" },
 ]
 
 // ─── Page ─────────────────────────────────────────────────────────────────

@@ -1,5 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest"
+import { DISH_ROLES, getRole, ROLE_TAG_ID } from "@/domain/models/tag"
 import rawData from "../../data/dishes.json"
 import { getAllDishes, getAllDishesWithTags, getAllTags, getDishWithTags } from "./data"
 import { DishesDataSchema } from "./data-schema"
@@ -34,6 +35,26 @@ describe("data/dishes.json", () => {
   it("すべての料理にタグが1つ以上付いている", () => {
     const untagged = getAllDishes().filter((dish) => dish.tagIds.length === 0)
     expect(untagged).toEqual([])
+  })
+
+  it("すべての料理に role タグがちょうど1つ付いている", () => {
+    const roleTagIds = new Set(DISH_ROLES.map((role) => ROLE_TAG_ID[role]))
+    const broken = getAllDishes()
+      .map((dish) => ({
+        name: dish.name,
+        roles: dish.tagIds.filter((tagId) => roleTagIds.has(tagId)),
+      }))
+      .filter((entry) => entry.roles.length !== 1)
+    expect(broken).toEqual([])
+  })
+
+  it("メインとして提案できる料理と、付け合わせの候補が両方ある", () => {
+    const roles = getAllDishes().map((dish) => getRole(dish.tagIds))
+    // どちらかが空だとレコメンドが成立しない
+    expect(roles.filter((role) => role === "onedish" || role === "main").length).toBeGreaterThan(0)
+    expect(roles.filter((role) => role === "side").length).toBeGreaterThan(0)
+    expect(roles.filter((role) => role === "soup").length).toBeGreaterThan(0)
+    expect(roles.filter((role) => role === "staple").length).toBeGreaterThan(0)
   })
 })
 

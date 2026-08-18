@@ -1,4 +1,5 @@
 import type { Tag } from "@/domain/models/tag"
+import type { SuggestedSide } from "./pairing"
 
 export type RecommendedDish = {
   id: string
@@ -7,6 +8,8 @@ export type RecommendedDish = {
   score: number
   /** 選択条件と一致したタグID。DishCard で強調表示する */
   matchedTagIds: string[]
+  /** この料理に合わせる付け合わせ（副菜・汁物・主食）。0〜2件 */
+  sides: SuggestedSide[]
 }
 
 export type RecommendResult = {

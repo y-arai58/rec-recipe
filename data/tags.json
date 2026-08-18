@@ -12,6 +12,7 @@
     { "id": "tag-genre-fried", "name": "揚げ物", "category": "genre" },
     { "id": "tag-genre-stirfry", "name": "炒め物", "category": "genre" },
     { "id": "tag-genre-simmered", "name": "煮物", "category": "genre" },
+    { "id": "tag-genre-salad", "name": "サラダ", "category": "genre" },
 
     { "id": "tag-volume-light", "name": "軽め", "category": "volume" },
     { "id": "tag-volume-normal", "name": "普通", "category": "volume" },
@@ -53,6 +54,12 @@
     { "id": "tag-season-winter", "name": "冬", "category": "season" },
     { "id": "tag-season-yearround", "name": "通年", "category": "season" },
     { "id": "tag-season-warm", "name": "温かい系", "category": "season" },
-    { "id": "tag-season-refreshing", "name": "さっぱり系", "category": "season" }
+    { "id": "tag-season-refreshing", "name": "さっぱり系", "category": "season" },
+
+    { "id": "tag-role-onedish", "name": "一皿で完結", "category": "role" },
+    { "id": "tag-role-main", "name": "主菜", "category": "role" },
+    { "id": "tag-role-side", "name": "副菜", "category": "role" },
+    { "id": "tag-role-soup", "name": "汁物", "category": "role" },
+    { "id": "tag-role-staple", "name": "主食", "category": "role" }
   ]
 }

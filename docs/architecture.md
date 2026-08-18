@@ -47,7 +47,8 @@ src/
 │   │   ├── components/
 │   │   │   ├── QuestionFlow.tsx    # 質問フローUI + スコアリング実行（Client Component）
 │   │   │   └── DishCard.tsx        # レコメンド結果カード
-│   │   ├── scoring.ts              # タグマッチングスコアリングロジック
+│   │   ├── scoring.ts              # タグマッチングスコアリング + 役割による絞り込み
+│   │   ├── pairing.ts              # メインに合わせる付け合わせ（副菜・汁物・主食）の選定
 │   │   └── types.ts                # UI用複合型
 │   └── meal-plan/
 │       ├── components/
@@ -74,9 +75,9 @@ src/
     └── utils.ts                    # cn()
 
 data/
-├── dishes.json                     # 料理224件 + タグマスター（tag-assign が生成。直接編集しない）
+├── dishes.json                     # 料理238件 + タグマスター（tag-assign が生成。直接編集しない）
 ├── dishes.schema.json              # JSON Schema
-├── tags.json                       # タグ49件のマスター（tag-assign スクリプトの入力）
+├── tags.json                       # タグ55件のマスター（tag-assign スクリプトの入力）
 ├── ingredients.json                # 食材67件（購入単位・日持ち・常備品フラグ）※手で編集
 ├── dish-ingredients.json           # 主菜55件ぶんの材料（2人分）※手で編集
 └── dish_name_list.json             # 料理名一覧（スクレイピングの中間生成物）
@@ -99,15 +100,17 @@ scripts/
 app/dishes/[id]/page.tsx（Server Component）
   → repositories/dishRepository.ts
   → lib/data.ts（dishes.json を Zod parse）
-  → 224ページを静的HTMLとして生成
+  → 238ページを静的HTMLとして生成
 ```
 
 ### レコメンド実行（ブラウザ上で完結）
 ```
 QuestionFlow.tsx（"use client"）
-  → 4問の回答（複数選択可）を選択タグID配列へ変換
+  → 5問の回答（複数選択可）を選択タグID配列へ変換
   → lib/data.ts の getAllDishesWithTags()
-  → features/recommend/scoring.ts の scoreDishes()
+  → scoring.ts の filterByRoles() … 提案対象を onedish / main だけに絞る
+  → scoring.ts の scoreDishes()
+  → pairing.ts の pickSides() … メイン1品ごとに付け合わせを最大2品
   → RecommendedDish[] を state に格納 → DishCard で描画
 ```
 
@@ -115,7 +118,7 @@ QuestionFlow.tsx（"use client"）
 ```
 MealPlanner.tsx（"use client"）
   → 日数(3〜7) / 人数(2〜4) を選択
-  → features/meal-plan/queries.ts … 材料データを持つ料理55件
+  → features/meal-plan/queries.ts … 材料データを持つメイン料理54件
   → features/meal-plan/planning.ts の buildMealPlan()
        1. 好みタグ + 食材の使い回し率 + 野菜量 で料理を貪欲に選ぶ
        2. 日持ちの短い食材を使う料理を前半の日へ並べ替え
@@ -133,7 +136,7 @@ MealPlanner.tsx（"use client"）
 
 ```typescript
 // src/domain/models/tag.ts
-const TAG_CATEGORIES = ["genre", "volume", "base", "cookTime", "protein", "season"] as const
+const TAG_CATEGORIES = ["genre", "volume", "base", "cookTime", "protein", "season", "role"] as const
 type TagCategory = (typeof TAG_CATEGORIES)[number]
 
 type Tag = {
@@ -165,13 +168,30 @@ type DishesData = { dishes: Dish[]; tags: Tag[] }
 ## Recommend Logic
 
 ```
-1. ユーザーが質問フロー（4問）に回答。各問は複数選択・スキップ可
+1. ユーザーが質問フロー（5問）に回答。各問は複数選択・スキップ可
 2. 選択肢を対応するタグID群に変換（constants/questions.ts）
 3. dishes.json の全料理（タグ結合済み）を取得
-4. 「ユーザー選択タグ ∩ 料理タグ」の一致数をスコアとする
-5. スコア降順にソート、同スコア内は Math.random() でシャッフル
-6. excludeIds を除外して上位 5 件を返す
+4. 役割が onedish / main の料理だけを候補にする（副菜・汁物・主食は単体で提案しない）
+5. 「ユーザー選択タグ ∩ 料理タグ」の一致数をスコアとする
+6. スコア降順にソート、同スコア内は Math.random() でシャッフル
+7. excludeIds を除外して上位 5 件を返す
+8. 各メインに付け合わせを最大2品つける（pairing.ts）
 ```
+
+### 付け合わせ（サブ提案）の選び方
+
+メインの役割で埋める枠が決まる。
+
+| メイン | 枠 |
+|---|---|
+| 丼・麺などの一皿完結（onedish） | 副菜 + 汁物 |
+| おかず（main） | 副菜 + 汁物（ご飯は前提） |
+| 具だくさんサラダが主役 | 主食 + 汁物（炭水化物を補う） |
+
+枠ごとの候補は、メインとのジャンル一致（+2）・季節一致（+1）・
+タンパク源のかぶり（-3）・15分以内（+1）・
+ボリュームのあるメインに軽い副菜（+1）でスコアリングして1品選ぶ。
+同じ提案リストの中では付け合わせを重複させない。
 
 ---
 
@@ -179,12 +199,13 @@ type DishesData = { dishes: Dish[]; tags: Tag[] }
 
 | category | 件数 | 説明 | 質問フローでの利用 |
 |---|---|---|---|
-| genre | 12 | 料理ジャンル（国） | Q2「何系が食べたい？」 |
+| genre | 13 | 料理ジャンル（国・サラダ） | Q2「何系が食べたい？」 |
 | volume | 4 | ボリューム感 | Q1「今日の気分は？」 |
 | base | 6 | 主食ベース | Q4「主食は？」 |
 | cookTime | 5 | 調理時間目安 | Q5「調理時間は？」 |
 | protein | 15 | タンパク源 | Q3「主役の食材は？」 |
 | season | 7 | 季節感 | 実行月から自動加点（「通年」は除く） |
+| role | 5 | 献立での役割 | 質問しない。提案対象と付け合わせの振り分けに使う |
 
 ---
 

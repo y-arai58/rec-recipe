@@ -2,7 +2,7 @@
 import { describe, expect, it } from "vitest"
 import type { DishWithTags } from "@/domain/models/dish"
 import type { Tag } from "@/domain/models/tag"
-import { scoreDishes } from "./scoring"
+import { filterByRoles, scoreDishes } from "./scoring"
 
 // ── テスト用フィクスチャ ────────────────────────────────────────────
 
@@ -173,5 +173,27 @@ describe("scoreDishes", () => {
     for (const dish of second) {
       expect(seen).not.toContain(dish.id)
     }
+  })
+})
+
+describe("filterByRoles", () => {
+  const ROLED = [
+    makeDish("main1", ["tag-role-main"]),
+    makeDish("onedish1", ["tag-role-onedish"]),
+    makeDish("side1", ["tag-role-side"]),
+    makeDish("soup1", ["tag-role-soup"]),
+    makeDish("noRole", ["tag-a"]),
+  ]
+
+  it("指定した役割の料理だけを残す", () => {
+    const result = filterByRoles(ROLED, ["onedish", "main"])
+    expect(result.map((dish) => dish.id)).toEqual(["main1", "onedish1"])
+  })
+
+  it("role タグが無い料理は除外する", () => {
+    expect(filterByRoles(ROLED, ["side", "soup", "staple"]).map((dish) => dish.id)).toEqual([
+      "side1",
+      "soup1",
+    ])
   })
 })

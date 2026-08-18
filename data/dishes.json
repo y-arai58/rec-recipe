@@ -9,7 +9,8 @@
         "tag-base-rice",
         "tag-cooktime-under60",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -21,7 +22,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -33,7 +35,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-beef",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -46,7 +49,8 @@
         "tag-cooktime-under30",
         "tag-protein-chicken",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -58,7 +62,8 @@
         "tag-base-donburi",
         "tag-cooktime-under30",
         "tag-protein-beef",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -70,7 +75,8 @@
         "tag-base-donburi",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -82,7 +88,8 @@
         "tag-base-donburi",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -94,7 +101,8 @@
         "tag-base-donburi",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -106,7 +114,8 @@
         "tag-base-donburi",
         "tag-cooktime-under30",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -118,7 +127,8 @@
         "tag-base-rice",
         "tag-cooktime-under60",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-staple"
       ]
     },
     {
@@ -131,7 +141,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -143,7 +154,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-staple"
       ]
     },
     {
@@ -155,7 +167,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-onedish"
       ]
     },
     {
@@ -167,7 +180,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-onedish"
       ]
     },
     {
@@ -179,7 +193,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -191,7 +206,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -204,7 +220,8 @@
         "tag-cooktime-under30",
         "tag-protein-mixed",
         "tag-season-refreshing",
-        "tag-season-summer"
+        "tag-season-summer",
+        "tag-role-onedish"
       ]
     },
     {
@@ -217,7 +234,8 @@
         "tag-cooktime-under30",
         "tag-protein-chicken",
         "tag-season-refreshing",
-        "tag-season-summer"
+        "tag-season-summer",
+        "tag-role-onedish"
       ]
     },
     {
@@ -229,7 +247,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -241,7 +260,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -253,7 +273,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-beef",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -265,7 +286,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -277,7 +299,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-legume",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-staple"
       ]
     },
     {
@@ -289,7 +312,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-autumn"
+        "tag-season-autumn",
+        "tag-role-staple"
       ]
     },
     {
@@ -301,7 +325,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-autumn"
+        "tag-season-autumn",
+        "tag-role-staple"
       ]
     },
     {
@@ -313,7 +338,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-legume",
-        "tag-season-spring"
+        "tag-season-spring",
+        "tag-role-staple"
       ]
     },
     {
@@ -325,7 +351,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -337,7 +364,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-onedish"
       ]
     },
     {
@@ -349,7 +377,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -361,7 +390,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -373,7 +403,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -386,7 +417,8 @@
         "tag-cooktime-under15",
         "tag-protein-none",
         "tag-season-refreshing",
-        "tag-season-summer"
+        "tag-season-summer",
+        "tag-role-onedish"
       ]
     },
     {
@@ -398,7 +430,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -411,7 +444,8 @@
         "tag-cooktime-under15",
         "tag-protein-egg",
         "tag-season-refreshing",
-        "tag-season-summer"
+        "tag-season-summer",
+        "tag-role-onedish"
       ]
     },
     {
@@ -423,7 +457,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -435,7 +470,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -447,7 +483,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -460,7 +497,8 @@
         "tag-cooktime-under30",
         "tag-protein-pork",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -472,7 +510,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -484,7 +523,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-onedish"
       ]
     },
     {
@@ -496,7 +536,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -508,7 +549,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-refreshing"
+        "tag-season-refreshing",
+        "tag-role-onedish"
       ]
     },
     {
@@ -520,7 +562,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-tofu",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -532,7 +575,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -545,7 +589,8 @@
         "tag-base-noodle",
         "tag-cooktime-under60",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -557,7 +602,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -569,7 +615,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -581,7 +628,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -593,7 +641,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -605,7 +654,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -617,7 +667,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -629,7 +680,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -641,7 +693,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-soup"
       ]
     },
     {
@@ -653,7 +706,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-tofu",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-soup"
       ]
     },
     {
@@ -666,7 +720,8 @@
         "tag-cooktime-under30",
         "tag-protein-none",
         "tag-season-warm",
-        "tag-season-winter"
+        "tag-season-winter",
+        "tag-role-soup"
       ]
     },
     {
@@ -678,7 +733,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-shellfish",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -690,7 +746,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -702,7 +759,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -714,7 +772,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -726,7 +785,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -738,7 +798,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -750,7 +811,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -762,7 +824,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -774,7 +837,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -786,7 +850,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -798,7 +863,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -810,7 +876,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -823,7 +890,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -835,7 +903,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -847,7 +916,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -860,7 +930,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -873,7 +944,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -885,7 +957,8 @@
         "tag-base-none",
         "tag-cooktime-overnight",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -897,7 +970,8 @@
         "tag-base-none",
         "tag-cooktime-overnight",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -909,7 +983,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -921,7 +996,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -934,7 +1010,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -946,7 +1023,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -958,7 +1036,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -970,7 +1049,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -982,7 +1062,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -994,7 +1075,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1006,7 +1088,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1018,7 +1101,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1030,7 +1114,8 @@
         "tag-base-none",
         "tag-cooktime-overnight",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1042,7 +1127,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1054,7 +1140,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1066,7 +1153,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1079,7 +1167,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1091,7 +1180,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1104,7 +1194,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -1116,7 +1207,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1129,7 +1221,8 @@
         "tag-base-none",
         "tag-cooktime-over60",
         "tag-protein-beef",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -1141,7 +1234,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-beef",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -1153,7 +1247,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-beef",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1165,7 +1260,8 @@
         "tag-base-none",
         "tag-cooktime-over60",
         "tag-protein-beef",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1177,7 +1273,8 @@
         "tag-base-donburi",
         "tag-cooktime-under30",
         "tag-protein-beef",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1189,7 +1286,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-beef",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1201,7 +1299,8 @@
         "tag-base-none",
         "tag-cooktime-overnight",
         "tag-protein-beef",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1213,7 +1312,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1226,7 +1326,8 @@
         "tag-base-none",
         "tag-cooktime-over60",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1238,7 +1339,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1251,7 +1353,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1263,7 +1366,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1275,7 +1379,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1287,7 +1392,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1299,7 +1405,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1311,7 +1418,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1323,7 +1431,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1336,7 +1445,8 @@
         "tag-cooktime-under60",
         "tag-protein-mixed",
         "tag-protein-tofu",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1348,7 +1458,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1361,7 +1472,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1374,7 +1486,8 @@
         "tag-cooktime-under30",
         "tag-protein-chicken",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1386,7 +1499,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-salmon",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1398,7 +1512,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-seafood",
-        "tag-season-autumn"
+        "tag-season-autumn",
+        "tag-role-main"
       ]
     },
     {
@@ -1410,7 +1525,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1423,7 +1539,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1435,7 +1552,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-whitefish",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1447,7 +1565,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-whitefish",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1459,7 +1578,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-whitefish",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1471,7 +1591,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-shrimp",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1483,7 +1604,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1495,7 +1617,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-squid",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1507,7 +1630,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-shrimp",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1519,7 +1643,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-shrimp",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1531,7 +1656,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1544,7 +1670,8 @@
         "tag-cooktime-under30",
         "tag-protein-whitefish",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1556,7 +1683,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-shellfish",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1568,7 +1696,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-shellfish",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1581,7 +1710,8 @@
         "tag-cooktime-under60",
         "tag-protein-chicken",
         "tag-protein-seafood",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -1593,7 +1723,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-whitefish",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1605,7 +1736,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-salmon",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1618,7 +1750,8 @@
         "tag-cooktime-under30",
         "tag-protein-seafood",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -1630,7 +1763,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1642,7 +1776,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1654,7 +1789,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1666,7 +1802,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1678,7 +1815,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1690,7 +1828,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1702,7 +1841,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1714,7 +1854,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1726,7 +1867,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1738,7 +1880,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1750,7 +1893,8 @@
         "tag-base-noodle",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -1763,7 +1907,8 @@
         "tag-cooktime-under30",
         "tag-protein-mixed",
         "tag-protein-tofu",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1776,7 +1921,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-tofu",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1788,7 +1934,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-tofu",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1800,7 +1947,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-tofu",
-        "tag-season-refreshing"
+        "tag-season-refreshing",
+        "tag-role-side"
       ]
     },
     {
@@ -1812,7 +1960,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-tofu",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1825,7 +1974,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-tofu",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1838,7 +1988,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-tofu",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-soup"
       ]
     },
     {
@@ -1851,7 +2002,8 @@
         "tag-cooktime-under30",
         "tag-protein-beef",
         "tag-protein-tofu",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1863,7 +2015,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1875,7 +2028,8 @@
         "tag-base-none",
         "tag-cooktime-over60",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1888,7 +2042,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-legume",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1900,7 +2055,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1912,7 +2068,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1924,7 +2081,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1936,7 +2094,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1948,7 +2107,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1961,7 +2121,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1974,7 +2135,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -1986,7 +2148,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -1998,67 +2161,75 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
       "id": "dish-165",
       "name": "ポテトサラダ",
       "tagIds": [
-        "tag-genre-japanese",
+        "tag-genre-salad",
         "tag-volume-light",
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-vegetable",
-        "tag-season-refreshing"
+        "tag-season-refreshing",
+        "tag-role-side"
       ]
     },
     {
       "id": "dish-166",
       "name": "コールスロー",
       "tagIds": [
+        "tag-genre-salad",
         "tag-genre-western",
         "tag-volume-normal",
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
       "id": "dish-167",
       "name": "かぼちゃサラダ",
       "tagIds": [
-        "tag-genre-japanese",
+        "tag-genre-salad",
         "tag-volume-light",
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-vegetable",
-        "tag-season-refreshing"
+        "tag-season-refreshing",
+        "tag-role-side"
       ]
     },
     {
       "id": "dish-168",
       "name": "ごぼうサラダ",
       "tagIds": [
-        "tag-genre-japanese",
+        "tag-genre-salad",
         "tag-volume-light",
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-vegetable",
-        "tag-season-refreshing"
+        "tag-season-refreshing",
+        "tag-role-side"
       ]
     },
     {
       "id": "dish-169",
       "name": "ひじきサラダ",
       "tagIds": [
+        "tag-genre-salad",
         "tag-genre-japanese",
         "tag-volume-light",
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-legume",
-        "tag-season-refreshing"
+        "tag-season-refreshing",
+        "tag-role-side"
       ]
     },
     {
@@ -2070,7 +2241,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2083,7 +2255,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2095,7 +2268,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2107,7 +2281,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2119,7 +2294,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2132,7 +2308,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2144,7 +2321,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2156,7 +2334,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2168,7 +2347,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2181,7 +2361,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2193,7 +2374,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2207,7 +2389,8 @@
         "tag-cooktime-over60",
         "tag-protein-none",
         "tag-season-warm",
-        "tag-season-winter"
+        "tag-season-winter",
+        "tag-role-main"
       ]
     },
     {
@@ -2219,7 +2402,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2232,7 +2416,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2245,7 +2430,8 @@
         "tag-base-soup",
         "tag-cooktime-under60",
         "tag-protein-pork",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -2257,7 +2443,8 @@
         "tag-base-soup",
         "tag-cooktime-over60",
         "tag-protein-tofu",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -2269,7 +2456,8 @@
         "tag-base-soup",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -2282,7 +2470,8 @@
         "tag-cooktime-over60",
         "tag-protein-pork",
         "tag-season-warm",
-        "tag-season-winter"
+        "tag-season-winter",
+        "tag-role-main"
       ]
     },
     {
@@ -2295,7 +2484,8 @@
         "tag-cooktime-over60",
         "tag-protein-chicken",
         "tag-season-warm",
-        "tag-season-winter"
+        "tag-season-winter",
+        "tag-role-main"
       ]
     },
     {
@@ -2308,7 +2498,8 @@
         "tag-cooktime-under60",
         "tag-protein-salmon",
         "tag-season-warm",
-        "tag-season-winter"
+        "tag-season-winter",
+        "tag-role-main"
       ]
     },
     {
@@ -2321,7 +2512,8 @@
         "tag-base-soup",
         "tag-cooktime-under60",
         "tag-protein-none",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -2333,7 +2525,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-chicken",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -2345,7 +2538,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-chicken",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -2357,7 +2551,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -2369,7 +2564,8 @@
         "tag-base-rice",
         "tag-cooktime-under60",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -2381,7 +2577,8 @@
         "tag-base-bread",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -2393,7 +2590,8 @@
         "tag-base-bread",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-staple"
       ]
     },
     {
@@ -2405,7 +2603,8 @@
         "tag-base-none",
         "tag-cooktime-over60",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2417,7 +2616,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -2429,7 +2629,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2441,7 +2642,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -2453,7 +2655,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2465,7 +2668,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2477,7 +2681,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-chicken",
-        "tag-season-refreshing"
+        "tag-season-refreshing",
+        "tag-role-main"
       ]
     },
     {
@@ -2489,7 +2694,8 @@
         "tag-base-none",
         "tag-cooktime-under15",
         "tag-protein-chicken",
-        "tag-season-refreshing"
+        "tag-season-refreshing",
+        "tag-role-main"
       ]
     },
     {
@@ -2501,7 +2707,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2513,7 +2720,8 @@
         "tag-base-none",
         "tag-cooktime-under60",
         "tag-protein-pork",
-        "tag-season-refreshing"
+        "tag-season-refreshing",
+        "tag-role-main"
       ]
     },
     {
@@ -2526,7 +2734,8 @@
         "tag-cooktime-under60",
         "tag-protein-pork",
         "tag-protein-seafood",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2538,7 +2747,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2550,7 +2760,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2562,7 +2773,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-none",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2575,7 +2787,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-vegetable",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2587,7 +2800,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2599,7 +2813,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-shrimp",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2611,7 +2826,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-shrimp",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-side"
       ]
     },
     {
@@ -2624,7 +2840,8 @@
         "tag-cooktime-under30",
         "tag-protein-chicken",
         "tag-season-refreshing",
-        "tag-season-summer"
+        "tag-season-summer",
+        "tag-role-main"
       ]
     },
     {
@@ -2636,7 +2853,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -2648,7 +2866,8 @@
         "tag-base-rice",
         "tag-cooktime-under60",
         "tag-protein-squid",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -2661,7 +2880,8 @@
         "tag-base-rice",
         "tag-cooktime-under30",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-onedish"
       ]
     },
     {
@@ -2674,7 +2894,8 @@
         "tag-base-none",
         "tag-cooktime-over60",
         "tag-protein-chicken",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -2687,7 +2908,8 @@
         "tag-base-none",
         "tag-cooktime-over60",
         "tag-protein-pork",
-        "tag-season-warm"
+        "tag-season-warm",
+        "tag-role-main"
       ]
     },
     {
@@ -2700,7 +2922,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-pork",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2712,7 +2935,8 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-chicken",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2725,7 +2949,8 @@
         "tag-cooktime-under30",
         "tag-protein-whitefish",
         "tag-protein-egg",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
       ]
     },
     {
@@ -2738,7 +2963,195 @@
         "tag-base-none",
         "tag-cooktime-under30",
         "tag-protein-mixed",
-        "tag-season-yearround"
+        "tag-season-yearround",
+        "tag-role-main"
+      ]
+    },
+    {
+      "id": "dish-225",
+      "name": "チキンシーザーサラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-normal",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-chicken",
+        "tag-season-refreshing",
+        "tag-role-main"
+      ]
+    },
+    {
+      "id": "dish-226",
+      "name": "コブサラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-normal",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-chicken",
+        "tag-protein-egg",
+        "tag-season-refreshing",
+        "tag-role-main"
+      ]
+    },
+    {
+      "id": "dish-227",
+      "name": "豚しゃぶサラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-normal",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-pork",
+        "tag-season-refreshing",
+        "tag-role-main"
+      ]
+    },
+    {
+      "id": "dish-228",
+      "name": "海鮮サラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-normal",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-seafood",
+        "tag-season-refreshing",
+        "tag-role-main"
+      ]
+    },
+    {
+      "id": "dish-229",
+      "name": "ツナと卵のニース風サラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-normal",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-seafood",
+        "tag-protein-egg",
+        "tag-season-refreshing",
+        "tag-role-main"
+      ]
+    },
+    {
+      "id": "dish-230",
+      "name": "タイ風春雨サラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-normal",
+        "tag-base-noodle",
+        "tag-cooktime-under15",
+        "tag-protein-shrimp",
+        "tag-season-refreshing",
+        "tag-role-main"
+      ]
+    },
+    {
+      "id": "dish-231",
+      "name": "アボカドと豆腐のサラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-normal",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-tofu",
+        "tag-season-refreshing",
+        "tag-role-main"
+      ]
+    },
+    {
+      "id": "dish-232",
+      "name": "チョップドサラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-normal",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-vegetable",
+        "tag-season-refreshing",
+        "tag-role-main"
+      ]
+    },
+    {
+      "id": "dish-233",
+      "name": "サラダうどん",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-genre-japanese",
+        "tag-volume-normal",
+        "tag-base-noodle",
+        "tag-cooktime-under15",
+        "tag-protein-vegetable",
+        "tag-season-refreshing",
+        "tag-role-onedish"
+      ]
+    },
+    {
+      "id": "dish-234",
+      "name": "大根サラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-light",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-vegetable",
+        "tag-season-refreshing",
+        "tag-role-side"
+      ]
+    },
+    {
+      "id": "dish-235",
+      "name": "グリーンサラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-light",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-vegetable",
+        "tag-season-refreshing",
+        "tag-role-side"
+      ]
+    },
+    {
+      "id": "dish-236",
+      "name": "トマトとモッツァレラのカプレーゼ",
+      "tagIds": [
+        "tag-genre-italian",
+        "tag-genre-salad",
+        "tag-volume-normal",
+        "tag-base-none",
+        "tag-cooktime-under30",
+        "tag-protein-vegetable",
+        "tag-season-yearround",
+        "tag-role-side"
+      ]
+    },
+    {
+      "id": "dish-237",
+      "name": "中華風春雨サラダ",
+      "tagIds": [
+        "tag-genre-chinese",
+        "tag-genre-salad",
+        "tag-volume-light",
+        "tag-base-noodle",
+        "tag-cooktime-under15",
+        "tag-protein-vegetable",
+        "tag-season-refreshing",
+        "tag-role-side"
+      ]
+    },
+    {
+      "id": "dish-238",
+      "name": "ブロッコリーとゆで卵のサラダ",
+      "tagIds": [
+        "tag-genre-salad",
+        "tag-volume-light",
+        "tag-base-none",
+        "tag-cooktime-under15",
+        "tag-protein-egg",
+        "tag-season-refreshing",
+        "tag-role-side"
       ]
     }
   ],
@@ -2801,6 +3214,11 @@
     {
       "id": "tag-genre-simmered",
       "name": "煮物",
+      "category": "genre"
+    },
+    {
+      "id": "tag-genre-salad",
+      "name": "サラダ",
       "category": "genre"
     },
     {
@@ -2987,6 +3405,31 @@
       "id": "tag-season-refreshing",
       "name": "さっぱり系",
       "category": "season"
+    },
+    {
+      "id": "tag-role-onedish",
+      "name": "一皿で完結",
+      "category": "role"
+    },
+    {
+      "id": "tag-role-main",
+      "name": "主菜",
+      "category": "role"
+    },
+    {
+      "id": "tag-role-side",
+      "name": "副菜",
+      "category": "role"
+    },
+    {
+      "id": "tag-role-soup",
+      "name": "汁物",
+      "category": "role"
+    },
+    {
+      "id": "tag-role-staple",
+      "name": "主食",
+      "category": "role"
     }
   ]
 }

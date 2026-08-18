@@ -26,6 +26,8 @@ export const QUESTIONS: Question[] = [
       { label: "和食", tagIds: ["tag-genre-japanese"] },
       { label: "中華", tagIds: ["tag-genre-chinese"] },
       { label: "洋食・イタリアン", tagIds: ["tag-genre-western", "tag-genre-italian"] },
+      // 具だくさんサラダはそれ自体がメインになるので、ジャンルとして選べるようにする
+      { label: "サラダ", tagIds: ["tag-genre-salad"] },
       { label: "なんでもいい", tagIds: [] },
     ],
   },

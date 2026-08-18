@@ -82,6 +82,7 @@ const GENRE_RULES: Rule[] = [
       "ドリア",
       "フォカッチャ",
       "ラザニア",
+      "カプレーゼ",
     ],
   },
   {
@@ -107,6 +108,10 @@ const GENRE_RULES: Rule[] = [
       "中華",
       "ミートボール",
     ],
+  },
+  {
+    tagId: "tag-genre-salad",
+    keywords: ["サラダ", "コールスロー", "カプレーゼ"],
   },
   {
     tagId: "tag-genre-korean",
@@ -233,7 +238,28 @@ const GENRE_RULES: Rule[] = [
   },
 ]
 
+/**
+ * 具だくさんで、それ自体が主菜になるサラダ。
+ * 「サラダ」を含む名前は既定で「軽め」に倒れるので、ここに挙げたものは除外する。
+ */
+const MAIN_SALAD_KEYWORDS = [
+  "チキンシーザーサラダ",
+  "コブサラダ",
+  "豚しゃぶサラダ",
+  "海鮮サラダ",
+  "ニース風サラダ",
+  "タイ風春雨サラダ",
+  "アボカドと豆腐のサラダ",
+  "チョップドサラダ",
+  "サラダうどん",
+]
+
 const VOLUME_RULES: Rule[] = [
+  // 主菜になるサラダを先に「普通」で確定させる（この下の「軽め」に取られないように）
+  {
+    tagId: "tag-volume-normal",
+    keywords: MAIN_SALAD_KEYWORDS,
+  },
   {
     tagId: "tag-volume-hearty",
     keywords: [
@@ -470,6 +496,7 @@ const PROTEIN_RULES: Rule[] = [
       "グラタン",
       "クリームシチュー",
       "ガパオ",
+      "コブサラダ",
     ],
   },
   {
@@ -577,7 +604,7 @@ const PROTEIN_RULES: Rule[] = [
   },
   {
     tagId: "tag-protein-shrimp",
-    keywords: ["エビ", "海老", "えび", "シュリンプ", "アヒージョ"],
+    keywords: ["エビ", "海老", "えび", "シュリンプ", "アヒージョ", "タイ風春雨"],
   },
   {
     tagId: "tag-protein-squid",
@@ -616,6 +643,7 @@ const PROTEIN_RULES: Rule[] = [
       "おじや",
       "冷やし中華",
       "ちらし寿司",
+      "コブサラダ",
     ],
   },
   {
@@ -744,6 +772,128 @@ const SEASON_RULES: Rule[] = [
 ]
 
 // ---------------------------------------------------------------------------
+// Role rules（献立での役割）
+//
+// レコメンドはメイン料理（onedish / main）だけを提案し、
+// side / soup / staple はメインの付け合わせ（サブ提案）として出す。
+// キーワードでは主菜と副菜を分けきれないため、料理名で明示的に列挙する。
+// ---------------------------------------------------------------------------
+
+/** ご飯もの・パンなど、単体では食事にならない主食 */
+const STAPLE_NAMES = new Set([
+  "おにぎり",
+  "炊き込みご飯",
+  "ひじきご飯",
+  "栗ご飯",
+  "さつまいもご飯",
+  "豆ご飯",
+  "フォカッチャ",
+])
+
+/** 汁物 */
+const SOUP_NAMES = new Set([
+  "味噌汁",
+  "豚汁",
+  "けんちん汁",
+  "粕汁",
+  "クラムチャウダー",
+  "ミネストローネ",
+  "コーンスープ",
+  "オニオンスープ",
+  "春雨スープ",
+  "中華スープ",
+  "トマトスープ",
+  "コンソメスープ",
+  "ポタージュ",
+  "冷製スープ",
+  "鶏スープ",
+  "かぼちゃスープ",
+  "油揚げのみそ汁",
+])
+
+/** 副菜・小鉢。メイン料理としては提案しない */
+const SIDE_NAMES = new Set([
+  "ひじきの煮物",
+  "きんぴらごぼう",
+  "ほうれん草のおひたし",
+  "かぼちゃの煮物",
+  "大根の煮物",
+  "切り干し大根",
+  "里芋の煮物",
+  "なすの味噌炒め",
+  "ラタトゥイユ",
+  "ポテトサラダ",
+  "コールスロー",
+  "かぼちゃサラダ",
+  "ごぼうサラダ",
+  "ひじきサラダ",
+  "れんこんのきんぴら",
+  "こんにゃくの煮物",
+  "小松菜の炒め物",
+  "モヤシ炒め",
+  "なすの揚げ浸し",
+  "かぼちゃの天ぷら",
+  "ブロッコリーのおひたし",
+  "アスパラのバター炒め",
+  "ほうれん草のソテー",
+  "フライドポテト",
+  "冷奴",
+  "揚げ出し豆腐",
+  "厚揚げの煮物",
+  "だし巻き卵",
+  "目玉焼き",
+  "炒り卵",
+  "茶碗蒸し",
+  "煮卵",
+  "温泉卵",
+  "スクランブルエッグ",
+  "卵とじ",
+  "アヒージョ",
+  "たこ焼き",
+  "かき揚げ",
+  "大根サラダ",
+  "グリーンサラダ",
+  "トマトとモッツァレラのカプレーゼ",
+  "中華風春雨サラダ",
+  "ブロッコリーとゆで卵のサラダ",
+])
+
+/** 主食タグが付かないが一皿で完結するもの */
+const ONEDISH_NAMES = new Set([
+  "ちらし寿司",
+  "キーマカレー",
+  "バターチキンカレー",
+  "ビーフカレー",
+  "シーフードカレー",
+  "ミートソース",
+  "ドリア",
+  "ラザニア",
+  "お好み焼き",
+  "もんじゃ焼き",
+])
+
+/** 主食タグが付くが、それ自体はおかずのもの */
+const MAIN_NAMES = new Set(["牛丼の具", "タイ風春雨サラダ"])
+
+/** 一皿で完結すると見なす主食タグ */
+const ONEDISH_BASE_TAG_IDS = new Set([
+  "tag-base-rice",
+  "tag-base-donburi",
+  "tag-base-noodle",
+  "tag-base-bread",
+])
+
+function assignRole(dishName: string, tagIds: string[]): string {
+  if (SOUP_NAMES.has(dishName)) return "tag-role-soup"
+  if (SIDE_NAMES.has(dishName)) return "tag-role-side"
+  if (STAPLE_NAMES.has(dishName)) return "tag-role-staple"
+  if (ONEDISH_NAMES.has(dishName)) return "tag-role-onedish"
+  if (MAIN_NAMES.has(dishName)) return "tag-role-main"
+  if (tagIds.some((id) => ONEDISH_BASE_TAG_IDS.has(id))) return "tag-role-onedish"
+  return "tag-role-main"
+}
+
+// ---------------------------------------------------------------------------
 // Tag assignment logic
 // ---------------------------------------------------------------------------
 
@@ -790,6 +940,8 @@ function assignTags(dishName: string): string[] {
 
     tagIds.push(...matched)
   }
+
+  tagIds.push(assignRole(dishName, tagIds))
 
   // 重複除去
   return [...new Set(tagIds)]

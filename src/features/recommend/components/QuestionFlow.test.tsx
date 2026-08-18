@@ -5,6 +5,16 @@ import { QuestionFlow } from "./QuestionFlow"
 
 afterEach(cleanup)
 
+/** 単体では提案されてはいけない料理（data/dishes.json で side / soup にしたもの） */
+const SIDE_ONLY_DISH_NAMES = [
+  "味噌汁",
+  "ほうれん草のおひたし",
+  "きんぴらごぼう",
+  "冷奴",
+  "ポテトサラダ",
+  "温泉卵",
+]
+
 const QUESTIONS: Question[] = [
   {
     id: "volume",
@@ -23,6 +33,11 @@ const QUESTIONS: Question[] = [
     ],
   },
 ]
+
+/** 結果に並んだメイン料理の名前。付け合わせは h3 にしないので拾わない */
+function mainDishNames(): string[] {
+  return screen.getAllByRole("heading", { level: 3 }).map((h) => h.textContent ?? "")
+}
 
 /** 「次へ」「料理を探す」を押して結果画面まで進む */
 function advanceToResult() {
@@ -92,7 +107,7 @@ describe("QuestionFlow", () => {
     advanceToResultWithGenre("和食")
 
     expect(screen.getByRole("heading", { name: "おすすめの料理" })).toBeDefined()
-    expect(screen.getAllByRole("listitem")).toHaveLength(5)
+    expect(mainDishNames()).toHaveLength(5)
   })
 
   it("条件を選ばなかった場合はランダムである旨を表示する", () => {
@@ -106,14 +121,9 @@ describe("QuestionFlow", () => {
     render(<QuestionFlow questions={QUESTIONS} />)
     advanceToResultWithGenre("和食")
 
-    const namesOf = () =>
-      screen
-        .getAllByRole("listitem")
-        .map((item) => within(item).getByRole("heading").textContent ?? "")
-
-    const first = namesOf()
+    const first = mainDishNames()
     fireEvent.click(screen.getByRole("button", { name: "他の候補を見る" }))
-    const second = namesOf()
+    const second = mainDishNames()
 
     expect(second).toHaveLength(5)
     for (const name of second) {
@@ -142,6 +152,35 @@ describe("QuestionFlow", () => {
     expect(
       screen.getByRole("button", { name: "ガッツリ食べたい" }).getAttribute("aria-pressed"),
     ).toBe("false")
+  })
+
+  it("副菜・汁物はメインとして提案しない", () => {
+    render(<QuestionFlow questions={QUESTIONS} />)
+    advanceToResultWithGenre("和食")
+
+    // 「ほうれん草のおひたし」「味噌汁」などの副菜・汁物は role で除外している
+    for (const name of mainDishNames()) {
+      expect(SIDE_ONLY_DISH_NAMES).not.toContain(name)
+    }
+  })
+
+  it("メインごとに付け合わせを提案する", () => {
+    render(<QuestionFlow questions={QUESTIONS} />)
+    advanceToResultWithGenre("和食")
+
+    const sections = screen.getAllByText("合わせるなら")
+    expect(sections).toHaveLength(5)
+
+    // 付け合わせは同じ結果の中で重複させない
+    const sideLinks = sections.flatMap((section) => {
+      const card = section.closest("div")?.parentElement
+      if (card === null || card === undefined) return []
+      return within(card as HTMLElement)
+        .getAllByRole("listitem")
+        .map((item) => item.textContent ?? "")
+    })
+    expect(sideLinks.length).toBeGreaterThan(0)
+    expect(new Set(sideLinks).size).toBe(sideLinks.length)
   })
 
   it("選択肢グループが質問見出しと紐付いている", () => {
